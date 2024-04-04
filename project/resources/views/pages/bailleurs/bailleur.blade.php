@@ -105,7 +105,7 @@
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
                                                             <label>Date de naissance</label>
-                                                            <input class="form-control" type="date" name="date_naissance" required />
+                                                            <input class="form-control" type="date" name="date_naissance"/>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-12">
@@ -123,21 +123,15 @@
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
                                                             <label>N° CNIB ou Passport<span class="text-danger">*</span></label>
-                                                            <input class="form-control" type="text" name="cnib" placeholder="B13649564" required />
+                                                            <input class="form-control" type="text" name="cnib" placeholder="B13649564" />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
-                                                            <label>Delivré le</label>
-                                                            <input class="form-control" type="date" name="date_deliv" required />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-12">
-                                                        <div class="mb-3">
                                                             <label>Téléphone<span class="text-danger">*</span></label>
-                                                            <input class="form-control" type="text" name="telephone" placeholder="67186063" required />
+                                                            <input class="form-control" type="text" name="telephone" placeholder="67186063" />
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-12">

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('profession')->nullable();
             $table->string('cnib')->nullable();
             $table->string('quartier')->nullable();
-            $table->boolean('resident')->nullable();
+            $table->string('resident')->nullable();
             $table->string('prevent_name')->nullable();
             $table->string('prevent_phone')->nullable();
             $table->timestamps();
