@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('Gestion_bailleurs', BailleurController::class);
     Route::get('Contrat/contrat_bailleur/{id}', [BailleurController::class, 'contrat_bailleur']);
     Route::get('delete_bailleur/{id}', [BailleurController::class, 'destroy']);
+    Route::get('addContrat_bailleur/{id}', [BailleurController::class, 'addContrat_bailleur']);
 
     Route::resource('Gestion_immeuble', ImmeubleController::class);
     Route::get('delete_immeubles/{id}', [ImmeubleController::class, 'destroy']);

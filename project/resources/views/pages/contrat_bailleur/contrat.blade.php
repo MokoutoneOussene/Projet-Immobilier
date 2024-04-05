@@ -46,22 +46,14 @@
                                             <div class="mb-3">
                                                 <label>Bailleurs</label>
                                                 <input type="text" name="users_id" class="form-control" value="{{ Auth::user()->id }}" hidden>
-                                                <select name="bailleurs_id" class="form-control">
-                                                    <option value="">Selectionner ici...</option>
-                                                    @foreach ($bailleurs as $item)
-                                                        <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->nom }} {{ $item->prenom }}</option>
-                                                    @endforeach
+                                                <select name="bailleurs_id" class="form-control js-example-basic-single">
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-12">
                                             <div class="mb-3">
                                                 <label>Immeuble</label>
-                                                <select name="immeubles_id" class="form-control">
-                                                    <option value="">Selectionner ici...</option>
-                                                    @foreach ($immeubles as $item)
-                                                        <option value="{{ $item->id }}">{{ $item->code }} - {{ $item->adresse }}</option>
-                                                    @endforeach
+                                                <select name="immeubles_id" class="form-control js-example-basic-single2">
                                                 </select>
                                             </div>
                                         </div>
@@ -118,4 +110,107 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2({
+                ajax: {
+                    url: '/api/search-bailleurs',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            page: params.page
+                        };
+                    },
+                    processResults: function(data, params) {
+                        params.page = params.page || 1;
+                        return {
+                            results: $.map(data.items, function(item) {
+                                return {
+                                    id: item.id,
+                                    text: item.nom + ' ' + item.prenom,
+                                    nom: item.nom,
+                                    prenom: item.prenom,
+                                    cnib: item.cnib,
+                                    telephone: item.telephone,
+                                    profession: item.profession,
+                                    quartier: item.quartier,
+                                    code: item.code,
+                                    adresse: item.adresse,
+                                    loyer: item.loyer
+                                };
+                            }),
+                            pagination: {
+                                more: (params.page * 30) < data.total_count
+                            }
+                        };
+                    },
+                    cache: true
+                },
+                placeholder: 'Rechercher un proprietaire...',
+                minimumInputLength: 2,
+            }).on('select2:select', function(e) {
+                var data = e.params.data;
+                $('#nom').val(data.nom);
+                $('#prenom').val(data.prenom);
+                $('#cnib').val(data.cnib);
+                $('#telephone').val(data.telephone);
+                $('#profession').val(data.profession);
+                $('#quartier').val(data.quartier);
+                $('#code').val(data.code);
+                $('#adresse').val(data.adresse);
+                $('#loyer').val(data.loyer);
+            });
+        });
+    </script>
+
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single2').select2({
+            ajax: {
+                url: '/api/search-maisons',
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        q: params.term,
+                        page: params.page
+                    };
+                },
+
+                processResults: function(data, params) {
+                    params.page = params.page || 1;
+                    return {
+                        results: $.map(data.items, function(item) {
+                            return {
+                                id: item.id,
+                                text: item.id + ' ' + item.type_maison,
+                                id: item.id,
+                                type_maison: item.type_maison,
+                                adresse: item.adresse,
+                                loyer: item.loyer,
+                                immeubles_id: item.immeubles_id,
+                            };
+                        }),
+                        pagination: {
+                            more: (params.page * 30) < data.total_count
+                        }
+                    };
+                },
+                cache: true
+            },
+            placeholder: 'Rechercher une maison...',
+            minimumInputLength: 2,
+        }).on('select2:select', function(e) {
+            var data = e.params.data;
+            $('#id').val(data.id);
+            $('#type_maison').val(data.type_maison);
+            $('#adresse').val(data.adresse);
+            $('#loyer').val(data.loyer);
+            $('#immeubles_id').val(data.immeubles_id);
+        });
+    });
+</script>
 @endsection

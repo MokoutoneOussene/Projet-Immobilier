@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Bailleur;
 use App\Models\ContratBailleur;
+use App\Models\Immeuble;
 use Illuminate\Http\Request;
 
 class BailleurController extends Controller
@@ -57,6 +58,17 @@ class BailleurController extends Controller
         $finds = ContratBailleur::find($id);
 
         return view('pages.bailleurs.contrat', compact('finds'));
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function addContrat_bailleur(string $id)
+    {
+        $finds = Bailleur::find($id);
+        $immeubles = Immeuble::where('bailleurs_id', '=', $id)->get();
+
+        return view('pages.bailleurs.create_contrat', compact('finds', 'immeubles'));
     }
 
     /**

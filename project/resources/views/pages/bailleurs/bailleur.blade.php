@@ -49,7 +49,7 @@
                             <tbody>
                                 @foreach ($collection as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->code }}</td>
                                         <td>{{ $item->nom }}</td>
                                         <td>{{ $item->prenom }}</td>
                                         <td>{{ $item->telephone }}</td>
