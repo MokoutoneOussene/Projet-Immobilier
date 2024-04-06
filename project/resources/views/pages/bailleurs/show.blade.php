@@ -95,19 +95,16 @@
                             <i class="fas fa-dollar-sign fa-fw text-blue me-2"></i>
                             Faire un retrait
                         </a>
-                        @if ($contrat_bailleur->isEmpty())
                             <a class="list-group-item list-group-item-action"
                                 href="{{ url('addContrat_bailleur/' . $finds->id) }}">
                                 <i class="fas fa-tag fa-fw text-purple me-2"></i>
                                 Faire un contrat de gestion
                             </a>
-                        @else
-                            <a class="list-group-item list-group-item-action"
+                            {{-- <a class="list-group-item list-group-item-action"
                                 href="{{ url('Contrat/contrat_bailleur/' . $finds->id) }}">
                                 <i class="fas fa-tag fa-fw text-purple me-2"></i>
                                 Afficher le contrat
-                            </a>
-                        @endif
+                            </a> --}}
                         <a class="list-group-item list-group-item-action"
                             href="{{ route('Gestion_bailleurs.edit', [$finds->id]) }}">
                             <i class="fas fa-edit fa-fw text-warning me-2"></i>

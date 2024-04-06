@@ -11,7 +11,8 @@
                             CONTRAT DE GESTION
                         </h1>
                         <div class="page-header-subtitle mt-3">
-                            Pour le prorietaire N° {{$finds->code}}
+                            Pour le prorietaire N° {{$finds->code}} <br>
+                            {{$finds->nom}} {{$finds->prenom}}
                         </div>
                     </div>
                     <div class="col-12 col-xl-auto mt-4">
