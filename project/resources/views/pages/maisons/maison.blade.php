@@ -43,6 +43,7 @@
                             <thead>
                                 <tr>
                                     <th>Code</th>
+                                    <th>Proprietaire</th>
                                     <th>Type de maison</th>
                                     <th>Adresse</th>
                                     <th>Loyer</th>
@@ -53,7 +54,8 @@
                             <tbody>
                                 @foreach ($collection as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->code }}</td>
+                                        <td>{{ $item->Immeuble->Bailleur->nom }} {{ $item->Immeuble->Bailleur->prenom }}</td>
                                         <td>{{ $item->type_maison }}</td>
                                         <td>{{ $item->adresse }}</td>
                                         <td>{{ $item->loyer }} FCFA</td>
@@ -124,7 +126,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     </select>
                                 </td>
                                 <td>
-                                    <input class="form-control" name="categorie" type="text" placeholder="Ras" />
+                                    <input class="form-control" name="categorie" type="text" placeholder="Ras"/>
                                 </td>
                                 <td class="text-center">
                                     <button class="btn btn-success" type="button" name="add" id="add">Add</button>
