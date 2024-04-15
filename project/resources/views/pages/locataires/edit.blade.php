@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <header class="page-header page-header-dark pb-10"
-        style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);">
+    <header class="page-header page-header-dark pb-10" style="background: rgb(129, 56, 56)">
         <div class="container-xl px-4">
             <div class="page-header-content pt-4">
                 <div class="row align-items-center justify-content-between">
@@ -75,19 +74,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-lg-4 col-md-12">
-                                                            <div class="mb-3">
-                                                                <label>Date d'amenagement<span class="text-danger">*</span></label>
-                                                                <input class="form-control" name="date_amenagement" type="date" value="{{ $finds->date_amenagement }}" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-12">
+                                                        <div class="col-lg-6 col-md-12">
                                                             <div class="mb-3">
                                                                 <label>Quartier</label>
                                                                 <input class="form-control" name="quartier" type="text" value="{{ $finds->quartier }}" />
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-12">
+                                                        <div class="col-lg-6 col-md-12">
                                                             <div class="mb-3">
                                                                 <label>Proffession</label>
                                                                 <input class="form-control" name="profession" type="text" value="{{ $finds->profession }}" />

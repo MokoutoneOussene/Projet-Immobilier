@@ -59,6 +59,15 @@ class LocationController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function encaiss_locat(string $id)
+    {
+        $finds = Location::find($id);
+        return view('pages.locations.encaissement_location', compact('finds'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)

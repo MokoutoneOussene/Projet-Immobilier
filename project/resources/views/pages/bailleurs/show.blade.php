@@ -95,26 +95,70 @@
                             <i class="fas fa-dollar-sign fa-fw text-blue me-2"></i>
                             Faire un retrait
                         </a>
-                            <a class="list-group-item list-group-item-action"
-                                href="{{ url('addContrat_bailleur/' . $finds->id) }}">
-                                <i class="fas fa-tag fa-fw text-purple me-2"></i>
-                                Faire un contrat de gestion
-                            </a>
-                            {{-- <a class="list-group-item list-group-item-action"
-                                href="{{ url('Contrat/contrat_bailleur/' . $finds->id) }}">
-                                <i class="fas fa-tag fa-fw text-purple me-2"></i>
-                                Afficher le contrat
-                            </a> --}}
+                        <a class="list-group-item list-group-item-action"
+                            href="{{ url('addContrat_bailleur/' . $finds->id) }}">
+                            <i class="fas fa-tag fa-fw text-purple me-2"></i>
+                            Faire un contrat de gestion
+                        </a>
                         <a class="list-group-item list-group-item-action"
                             href="{{ route('Gestion_bailleurs.edit', [$finds->id]) }}">
                             <i class="fas fa-edit fa-fw text-warning me-2"></i>
                             Modifier le bailleur
                         </a>
                         <a class="list-group-item list-group-item-action"
-                            href="{{ url('delete_bailleur/' . $finds->id) }}">
+                            href="{{ url('delete_bailleur/' . $finds->id) }}" onclick="return confirm('Voulez vous vraiment supprimer cet element ?')">
                             <i class="fas fa-close fa-fw text-danger me-2"></i>
                             Supprimer le bailleur
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <!-- Tabbed dashboard card example-->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="text-center mb-3">Etat général des paiement</h2>
+                        <table class="table table-bordered table-responsive">
+                            @foreach ($immeubles as $immeuble)
+                                <tr class="text-center">
+                                    <th></th>
+                                    <th>Code location</th>
+                                    <th>Nom locataire</th>
+                                    <th>Num téléphone</th>
+                                    <th>Loyer</th>
+                                    <th>Dernier mois</th>
+                                    <th>Année</th>
+                                    <th>Retard</th>
+                                </tr>
+                                @foreach ($immeuble->maisons as $item)
+                                    <tr class="text-center">
+                                        <td></td>
+                                        <td>{{ $item->location->Encaissement->code ?? '' }}</td>
+                                        <td>{{ $item->location->Encaissement->Location->Locataire->nom ?? '' }} {{ $item->location->Encaissement->Location->Locataire->prenom ?? '' }}</td>
+                                        <td>{{ $item->location->Encaissement->Location->Locataire->telephone ?? '' }}</td>
+                                        <td>{{ $item->location->Encaissement->Location->Maison->loyer ?? '' }}</td>
+                                        <td>{{ $item->location->Encaissement->periode ?? '' }}</td>
+                                        <td>{{ $item->location->Encaissement->annee ?? '' }}</td>
+                                        <td>0 Mois</td>
+                                    </tr>
+                                @endforeach
+                                </td>
+                                <td colspan="8">
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-6 p-3 bg-dark">
+                                            <h4 class="text-light"><strong>TOTAL</strong></h4>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 p-3 bg-danger">
+                                            <h4 class="text-light"><strong>{{ $immeuble->totalEncaissement }} FCFA</strong>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             </div>

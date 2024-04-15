@@ -42,7 +42,7 @@
                                     </tr>
                                     <tr>
                                         <th>Date encaissement</th>
-                                        <td>{{ $finds->date_encaissement }}</td>
+                                        <td>{{ $finds->created_at->format('d-m-Y') }}</td>
                                     </tr>
                                     <tr>
                                         <th>Locataire</th>
@@ -82,7 +82,7 @@
                             <i class="fas fa-edit fa-fw text-warning me-2"></i>
                             Modifier l'encaissement
                         </a>
-                        <a class="list-group-item list-group-item-action" href="{{ url('delete_encaissement/' . $finds->id) }}">
+                        <a class="list-group-item list-group-item-action" href="{{ url('delete_encaissement/' . $finds->id) }}" onclick="return confirm('Voulez vous vraiment supprimer cet element ?')">
                             <i class="fas fa-close fa-fw text-danger me-2"></i>
                             Supprimer l'encaissement
                         </a>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('code')->unique()->nullable();
             $table->string('beneficier');
             $table->string('montant');
-            $table->string('date');
+            $table->string('date')->nullable();
             $table->longText('motif')->nullable();
 
             $table->foreignId('users_id')->constrained()->onUpdate('cascade')->onDelete('cascade');

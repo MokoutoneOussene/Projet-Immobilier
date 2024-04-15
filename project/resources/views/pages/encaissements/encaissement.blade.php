@@ -36,8 +36,7 @@
                 <!-- Tabbed dashboard card example-->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div
-                            style="background: linear-gradient(90deg, rgb(160, 240, 195) 0%, rgb(237, 237, 163) 100%); border-radius: 5px;">
+                        <div style="background: linear-gradient(90deg, rgb(160, 240, 195) 0%, rgb(237, 237, 163) 100%); border-radius: 5px;">
                             <form action="{{ route('date_filter') }}" method="GET">
                                 <div class="d-flex justify-content-end mb-3">
                                     <div class="col-3 m-2">
@@ -72,9 +71,8 @@
                                 @foreach ($encaissements as $item)
                                     <tr>
                                         <td>{{ $item->code }}</td>
-                                        <td>{{ $item->date_encaissement }}</td>
-                                        <td>{{ $item->Location->Locataire->nom }} {{ $item->Location->Locataire->prenom }}
-                                        </td>
+                                        <td>{{ $item->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ $item->Location->Locataire->nom }} {{ $item->Location->Locataire->prenom }}</td>
                                         <td>{{ $item->Location->Maison->adresse }}</td>
                                         <td>{{ $item->montant }}</td>
                                         <td>{{ $item->periode }}</td>
@@ -90,7 +88,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="col-lg-9 col-md-6 p-3 bg-secondary">
                                 <h4 class="text-light"><strong>TOTAL</strong></h4>
                             </div>

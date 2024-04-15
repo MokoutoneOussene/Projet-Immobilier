@@ -47,7 +47,23 @@ class BailleurController extends Controller
         $finds = Bailleur::find($id);
         $contrat_bailleur = ContratBailleur::where('bailleurs_id', '=', $id)->get();
 
-        return view('pages.bailleurs.show', compact('finds', 'contrat_bailleur'));
+        $immeubles = Immeuble::latest()->with('maisons.location')->whereIn('bailleurs_id', $finds)->get();
+
+        $immeubles->each(function ($immeuble) {
+            $immeuble->maisons->load('location.Encaissement');
+        });
+
+        $immeubles->each(function ($immeuble) {
+            $totalEncaissement = 0;
+            foreach ($immeuble->maisons as $maison) {
+                if ($maison->location && $maison->location->Encaissement) {
+                    $totalEncaissement += $maison->location->Encaissement->montant;
+                }
+            }
+            $immeuble->totalEncaissement = $totalEncaissement;
+        });
+
+        return view('pages.bailleurs.show', compact('finds', 'contrat_bailleur', 'immeubles'));
     }
 
     /**

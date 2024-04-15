@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('depense_locataires', function (Blueprint $table) {
+        Schema::create('paiements', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique()->nullable();
-            $table->string('montant');
-            $table->string('date')->nullable();
-            $table->longText('motif')->nullable();
+            $table->string('code')->nullable();
+            $table->date('date')->nullable();
+            $table->string('periode')->nullable();
+            $table->string('annee')->nullable();
+            $table->integer('montant')->nullable();
+            $table->integer('bonus')->nullable();
+            $table->integer('total')->nullable();
 
-            $table->foreignId('locataires_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('users_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('depense_locataires');
+        Schema::dropIfExists('paiements');
     }
 };

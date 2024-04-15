@@ -8,10 +8,11 @@
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
-                            Fiche de la maison N°: {{ $finds->id }}
+                            Fiche du paiement N°: {{ $finds->id }}
                         </h1>
                         <div class="page-header-subtitle mt-4 text-warning">Tout les traitements effectués ici ne concerne
-                            que sur cette maison</div>
+                            que sur cet paiement
+                        </div>
                     </div>
                     <div class="col-12 col-xl-auto mt-4">
                         <div class="input-group input-group-joined border-0" style="width: 16.5rem">
@@ -36,32 +37,36 @@
                             <div class="row">
                                 <table class="table table-bordered" style="width: 100%;">
                                     <tr>
-                                        <th>Code maison</th>
-                                        <td>{{ $finds->id }}</td>
+                                        <th>Code paiement</th>
+                                        <td>{{ $finds->code }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Adresse</th>
-                                        <td>{{ $finds->adresse }}</td>
+                                        <th>Personnel</th>
+                                        <td>{{ $finds->User->nom }} {{ $finds->User->prenom }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Loyer</th>
-                                        <td>{{ $finds->loyer }}</td>
+                                        <th>Date paiement</th>
+                                        <td>{{ $finds->date }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Type de maison</th>
-                                        <td>{{ $finds->type_maison }}</td>
+                                        <th>Mois concerné</th>
+                                        <td>{{ $finds->periode }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Categorie</th>
-                                        <td>{{ $finds->categorie }}</td>
+                                        <th>Année</th>
+                                        <td>{{ $finds->annee }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Proprietaire</th>
-                                        <td>{{ $finds->Immeuble->Bailleur->nom }} {{ $finds->Immeuble->Bailleur->prenom }}</td>
+                                        <th>Montant</th>
+                                        <td>{{ $finds->montant }} FCFA</td>
                                     </tr>
                                     <tr>
-                                        <th>Situation</th>
-                                        <td>{{ $finds->situation }}</td>
+                                        <th>Bonus</th>
+                                        <td>{{ $finds->bonus }} FCFA</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Montant total</th>
+                                        <td>{{ $finds->total }} FCFA</td>
                                     </tr>
                                 </table>
                             </div>
@@ -73,13 +78,18 @@
                 <div class="card mb-4">
                     <div class="card-header text-center">Plus d'actions</div>
                     <div class="list-group list-group-flush small">
-                        <a class="list-group-item list-group-item-action" href="{{ route('Gestion_maisons.edit', [$finds->id]) }}">
-                            <i class="fas fa-edit fa-fw text-warning me-2"></i>
-                            Modifier la maison
+                        <a class="list-group-item list-group-item-action" href="#!">
+                            <i class="fas fa-dollar-sign fa-fw text-blue me-2"></i>
+                            Borderau de paiement
                         </a>
-                        <a class="list-group-item list-group-item-action" href="{{ url('delete_maison/' . $finds->id) }}">
+                        <a class="list-group-item list-group-item-action" href="">
+                            <i class="fas fa-edit fa-fw text-warning me-2"></i>
+                            Modifier le bailleur
+                        </a>
+                        <a class="list-group-item list-group-item-action"
+                            href="{{ url('delete_bailleur/' . $finds->id) }}">
                             <i class="fas fa-close fa-fw text-danger me-2"></i>
-                            Supprimer la maison
+                            Supprimer le bailleur
                         </a>
                     </div>
                 </div>

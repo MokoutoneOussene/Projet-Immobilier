@@ -42,7 +42,9 @@
                                     <th>Code</th>
                                     <th>Locataire</th>
                                     <th>Bailleur</th>
-                                    <th>Maison</th>
+                                    <th>Type maison</th>
+                                    <th>Adresse</th>
+                                    <th>Loyer</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -51,9 +53,10 @@
                                     <tr>
                                         <td>{{ $item->code }}</td>
                                         <td>{{ $item->Locataire->nom }} {{ $item->Locataire->prenom }}</td>
-                                        <td>{{ $item->Maison->Immeuble->Bailleur->nom }}
-                                            {{ $item->Maison->Immeuble->Bailleur->prenom }}</td>
-                                        <td>{{ $item->Maison->type_maison }} - {{ $item->Maison->adresse }}</td>
+                                        <td>{{ $item->Maison->Immeuble->Bailleur->nom }} {{ $item->Maison->Immeuble->Bailleur->prenom }}</td>
+                                        <td>{{ $item->Maison->type_maison }}</td>
+                                        <td>{{ $item->Maison->adresse }}</td>
+                                        <td>{{ $item->Maison->loyer }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('Gestion_location.show', [$item->id]) }}">
                                                 <i class="me-2 text-green" data-feather="eye"></i>

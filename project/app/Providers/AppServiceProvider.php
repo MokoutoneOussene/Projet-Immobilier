@@ -12,6 +12,7 @@ use App\Models\Immeuble;
 use App\Models\Locataire;
 use App\Models\Location;
 use App\Models\Maison;
+use App\Models\Paiement;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ServiceProvider;
@@ -76,6 +77,11 @@ class AppServiceProvider extends ServiceProvider
 
         DepenseLocataire::created(function ($dep_locataire) {
             $dep_locataire->update(['code' => 'DLT-' . $dep_locataire->id]);
+        });
+
+        Paiement::created(function ($paiement) {
+            $paiement->update(['code' => 'PAI-' . $paiement->id]);
+            $paiement->update(['total' => $paiement->montant+$paiement->bonus]);
         });
     }
 }

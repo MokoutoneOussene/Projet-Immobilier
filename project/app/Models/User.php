@@ -49,6 +49,10 @@ class User extends Authenticatable
         return $this->hasMany(Location::class);
     }
 
+    function Paiement() {
+        return $this->hasMany(Paiement::class);
+    }
+
     function ContratBailleur() {
         return $this->hasMany(ContratBailleur::class);
     }

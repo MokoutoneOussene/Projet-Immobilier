@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/search-locataires', [RechercheController::class, 'searchLocataires'])->name('searchLocataires');
 Route::get('/search-maisons', [RechercheController::class, 'searchMaison'])->name('searchMaison');
 Route::get('/search-bailleurs', [RechercheController::class, 'searchBailleur'])->name('searchBailleur');
+Route::get('/search-locations', [RechercheController::class, 'searchLocation'])->name('searchLocation');

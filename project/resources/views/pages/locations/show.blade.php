@@ -11,11 +11,7 @@
                             Fiche de location N°: {{ $finds->id }}
                         </h1>
                         <div class="page-header-subtitle mt-4 text-warning">Tout les traitements effectués ici ne concerne
-                            que sur cette la location</div>
-                        <div class="page-header-subtitle mt-3">
-                            <a class="btn btn-success w-50" href="{{ url('Contrat/gestion_contrat/' . $finds->id) }}">
-                                Afficher le contrat
-                            </a>
+                            que sur cette la location
                         </div>
                     </div>
                     <div class="col-12 col-xl-auto mt-4">
@@ -25,10 +21,6 @@
                                 {{ Carbon\Carbon::now()->format('d-m-Y') }}
                             </div>
                         </div>
-                        <a class="btn btn-danger mt-3 w-100" href="#!" data-bs-toggle="modal"
-                            data-bs-target="#formUserBackdrop">
-                            Resilier le contrat
-                        </a>
                     </div>
                 </div>
             </div>
@@ -37,90 +29,88 @@
     <!-- Main page content-->
     <div class="container-xl px-4 mt-n10">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-8">
                 <!-- Tabbed dashboard card example-->
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="sbp-preview-content">
                             <div class="row">
-                                <div class="col-lg-6 col-md-12"
-                                    style="border: 2px solid rgb(242, 199, 174); border-radius: 5px; padding-left: 10px;">
-                                    <h4 class="text-center m-3 text-danger">Locataire</h4>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="mr-5">
-                                                <p>Code loacataire : <strong>{{ $finds->Locataire->id }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Nom : <strong>{{ $finds->Locataire->nom }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Prénom : <strong>{{ $finds->Locataire->prenom }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Tél : <strong>{{ $finds->Locataire->telephone }}</strong></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="mr-5">
-                                                <p>Date d'engagement : <strong>{{ $finds->Locataire->date_amenagement }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>N° CNIB - Passport : <strong>{{ $finds->Locataire->cnib }}</strong></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12" style="border: 2px solid rgb(242, 199, 174); border-radius: 5px; padding-left: 10px;">
-                                    <h4 class="text-center m-3 text-danger">Maison</h4>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="mr-5">
-                                                <p>Code immeuble : <strong>{{ $finds->Maison->Immeuble->id }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Type maison : <strong>{{ $finds->Maison->type_maison }}</strong></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="mr-5">
-                                                <p>Adresse : <strong>{{ $finds->Maison->Immeuble->adresse }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Loyer : <strong>{{ $finds->Maison->loyer }} FCFA</strong></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-5">
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="mr-5">
-                                        <p>Caution électricité : <strong>{{ $finds->Locataire->caution_electricite }} FCFA</strong></p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="mr-5">
-                                        <p>Caution eau : <strong>{{ $finds->Locataire->caution_eau }} FCFA</strong></p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="mr-5">
-                                        <p>Louer au prolata : <strong>{{ $finds->Locataire->prolata }} FCFA</strong></p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="mr-5">
-                                        <p>Caution versée : <strong>{{ $finds->Locataire->caution_verse }} FCFA</strong></p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="mr-5">
-                                        <p>Avance versée : <strong>{{ $finds->Locataire->avance }} FCFA</strong></p>
-                                    </div>
-                                </div>
+                                <table class="table table-bordered" style="width: 100%;">
+                                    <tr>
+                                        <td class="text-center text-danger" colspan="2">Informations du locataire</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Code loacataire</th>
+                                        <td>{{ $finds->Locataire->id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <td>{{ $finds->Locataire->nom }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Prénom</th>
+                                        <td>{{ $finds->Locataire->prenom }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Téléphone</th>
+                                        <td>{{ $finds->cnib }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date d'engagement</th>
+                                        <td>{{ $finds->created_at->format('d-m-Y') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>N° CNIB - Passport</th>
+                                        <td>{{ $finds->cnib }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center text-danger" colspan="2">Information de la maison</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Code</th>
+                                        <td>{{ $finds->Maison->code }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Adresse</th>
+                                        <td>{{ $finds->Maison->adresse }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type de la maison</th>
+                                        <td>{{ $finds->Maison->type_maison }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Loyer</th>
+                                        <td>{{ $finds->Maison->loyer }} FCFA</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card mb-4">
+                    <div class="card-header text-center">Plus d'actions</div>
+                    <div class="list-group list-group-flush small">
+                        <a class="list-group-item list-group-item-action" href="{{ url('encaissement_locations/' . $finds->id) }}">
+                            <i class="fas fa-dollar-sign fa-fw text-blue me-2"></i>
+                            Faire un encaissement
+                        </a>
+                        <a class="list-group-item list-group-item-action"
+                            href="{{ url('Contrat/gestion_contrat/' . $finds->id) }}">
+                            <i class="fas fa-tag fa-fw text-purple me-2"></i>
+                            Afficher le contrat
+                        </a>
+                        <a class="list-group-item list-group-item-action"
+                            href="{{ route('Gestion_location.edit', [$finds->id]) }}">
+                            <i class="fas fa-edit fa-fw text-warning me-2"></i>
+                            Modifier la location
+                        </a>
+                        <a class="list-group-item list-group-item-action"
+                            href="">
+                            <i class="fas fa-close fa-fw text-danger me-2"></i>
+                            Supprimer la location
+                        </a>
                     </div>
                 </div>
             </div>

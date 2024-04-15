@@ -56,7 +56,7 @@ class DepenseController extends Controller
         $date_debut = $request->date_debut;
         $date_fin = $request->date_fin;
 
-        $depenses = Depense::whereDate('date', '>=', $date_debut)->whereDate('date', '<=', $date_fin)->get();
+        $depenses = Depense::whereDate('created_at', '>=', $date_debut)->whereDate('created_at', '<=', $date_fin)->get();
         $total = $depenses->sum('montant');
 
         return view('pages.depenses.depense_courant', compact('depenses', 'total'));
@@ -70,7 +70,7 @@ class DepenseController extends Controller
         $date_debut = $request->date_debut;
         $date_fin = $request->date_fin;
 
-        $depenses = DepenseBailleur::whereDate('date', '>=', $date_debut)->whereDate('date', '<=', $date_fin)->get();
+        $depenses = DepenseBailleur::whereDate('created_at', '>=', $date_debut)->whereDate('created_at', '<=', $date_fin)->get();
         $bailleurs = Bailleur::latest()->get();
         $total = $depenses->sum('montant');
 
@@ -85,7 +85,7 @@ class DepenseController extends Controller
         $date_debut = $request->date_debut;
         $date_fin = $request->date_fin;
 
-        $depenses = DepenseLocataire::whereDate('date', '>=', $date_debut)->whereDate('date', '<=', $date_fin)->get();
+        $depenses = DepenseLocataire::whereDate('created_at', '>=', $date_debut)->whereDate('created_at', '<=', $date_fin)->get();
         $locataires = Locataire::latest()->get();
         $total = $depenses->sum('montant');
 

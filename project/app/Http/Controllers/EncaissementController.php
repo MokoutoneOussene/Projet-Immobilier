@@ -45,7 +45,6 @@ class EncaissementController extends Controller
             $immeuble->totalEncaissement = $totalEncaissement;
         });
 
-
         return view('pages.encaissements.etat_general', compact('immeubles'));
     }
 
@@ -69,7 +68,7 @@ class EncaissementController extends Controller
         $date_fin = $request->date_fin;
 
         $locations = Location::latest()->get();
-        $encaissements = Encaissement::whereDate('date_encaissement', '>=', $date_debut)->whereDate('date_encaissement', '<=', $date_fin)->get();
+        $encaissements = Encaissement::whereDate('created_at', '>=', $date_debut)->whereDate('created_at', '<=', $date_fin)->get();
         $total = $encaissements->sum('montant');
 
         return view('pages.encaissements.encaissement', compact('encaissements', 'locations', 'total'));

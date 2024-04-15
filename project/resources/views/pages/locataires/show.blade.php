@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <header class="page-header page-header-dark pb-10"
-        style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);">
+    <header class="page-header page-header-dark pb-10" style="background: rgb(129, 56, 56)">
         <div class="container-xl px-4">
             <div class="page-header-content pt-4">
                 <div class="row align-items-center justify-content-between">
@@ -10,7 +9,7 @@
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
                             Fiche du locataire N°: {{ $finds->id }}
                         </h1>
-                        <div class="page-header-subtitle mt-4 text-warning">Tout les traitements effectués ici ne concerne
+                        <div class="page-header-subtitle mt-4">Tout les traitements effectués ici ne concerne
                             que sur cet locataire</div>
                     </div>
                     <div class="col-12 col-xl-auto mt-4">
@@ -40,79 +39,74 @@
                                 <div class="col-lg-8 col-md-12">
                                     <h4 class="text-center m-3 text-danger">Information sur le locataire</h4>
                                     <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="mr-5">
-                                                <p>Nom : <strong>{{ $finds->nom }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Téléphone : <strong>{{ $finds->telephone }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>N° CNIB - Passport : <strong>{{ $finds->cnib }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Situation : <strong>{{ $finds->statut }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Adresse : <strong>{{ $finds->quartier }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Profession : <strong>{{ $finds->profession }}</strong></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="mr-5">
-                                                <p>Prénom : <strong>{{ $finds->prenom }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Date d'engagement : <strong>{{ $finds->date_amenagement }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Caution electricite : <strong>{{ $finds->caution_electricite }}</strong>
-                                                </p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Caution eau : <strong>{{ $finds->caution_eau }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Loyer au prolata : <strong>{{ $finds->prolata }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Caution verse : <strong>{{ $finds->caution_verse }}</strong></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12"
-                                            style="border: 2px solid rgb(242, 199, 174); border-radius: 5px; padding-left: 10px;">
-                                            <h6 class="m-2 text-center text-danger">Personne à prévenir en cas de besoin
-                                            </h6>
-                                            <div class="mr-5">
-                                                <p>Nom complet : <strong>{{ $finds->prevent_name }}</strong></p>
-                                            </div>
-                                            <div class="mr-5">
-                                                <p>Téléphone : <strong>{{ $finds->prevent_phone }}</strong></p>
-                                            </div>
-                                        </div>
+                                        <table class="table table-bordered" style="width: 100%;">
+                                            <tr>
+                                                <th>Code locataire</th>
+                                                <td>{{ $finds->id }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nom</th>
+                                                <td>{{ $finds->nom }} {{ $finds->prenom }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>CNIB ou Passport</th>
+                                                <td>{{ $finds->cnib }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Téléphone</th>
+                                                <td>{{ $finds->telephone }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Quartier</th>
+                                                <td>{{ $finds->quartier }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Situation</th>
+                                                <td>{{ $finds->statut }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Profession</th>
+                                                <td>{{ $finds->profession }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Caution electricite</th>
+                                                <td>{{ $finds->caution_electricite }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Caution eau</th>
+                                                <td>{{ $finds->caution_eau }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Loyer au prolata</th>
+                                                <td>{{ $finds->prolata }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Caution verse</th>
+                                                <td>{{ $finds->caution_verse }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center text-danger" colspan="2">Personne a prevenir en cas de besoin</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nom & prénom</th>
+                                                <td>{{ $finds->prevent_name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Téléphone</th>
+                                                <td>{{ $finds->prevent_phone }}</td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <div class="card mb-4">
                                         <div class="card-header">Plus d'actions</div>
                                         <div class="list-group list-group-flush small">
-                                            <a class="list-group-item list-group-item-action" href="#!">
-                                                <i class="fas fa-dollar-sign fa-fw text-blue me-2"></i>
-                                                Enregistrer un encaissement
-                                            </a>
-                                            <a class="list-group-item list-group-item-action" href="{{ url('Contrat/gestion_contrat/' . $finds->id) }}">
-                                                <i class="fas fa-tag fa-fw text-purple me-2"></i>
-                                                Afficher le contrat
-                                            </a>
                                             <a class="list-group-item list-group-item-action" href="{{ route('Gestion_locataires.edit', [$finds->id]) }}">
                                                 <i class="fas fa-edit fa-fw text-warning me-2"></i>
                                                 Modifier le locataire
                                             </a>
-                                            <a class="list-group-item list-group-item-action" href="{{ url('delete_locataire/' . $finds->id) }}">
+                                            <a class="list-group-item list-group-item-action" href="{{ url('delete_locataire/' . $finds->id) }}" onclick="return confirm('Voulez vous vraiment supprimer cet element ?')">
                                                 <i class="fas fa-close fa-fw text-danger me-2"></i>
                                                 Supprimer le locataire
                                             </a>
@@ -130,7 +124,7 @@
             <div class="col-lg-12">
                 <!-- Tabbed dashboard card example-->
                 <div class="card mb-4">
-                    <h4 class="text-center text-danger m-3">LISTE DES PAIEMENTS</h4>
+                    <h4 class="text-center text-danger m-3">SUIVI DES PAIEMENTS</h4>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
@@ -148,7 +142,7 @@
                                 @foreach ($collection as $item)
                                     <tr>
                                         <td>{{ $item->code }}</td>
-                                        <td>{{ $item->date_encaissement }}</td>
+                                        <td>{{ $item->created_at->format('d-m-Y') }}</td>
                                         <td>{{ $item->montant }}</td>
                                         <td>{{ $item->periode }}</td>
                                         <td>{{ $item->Location->Maison->loyer }}</td>

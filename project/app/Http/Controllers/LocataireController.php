@@ -57,7 +57,7 @@ class LocataireController extends Controller
      */
     public function contrat(string $id)
     {
-        $finds = Locataire::find($id);
+        $finds = Location::find($id);
 
         return view('pages.locations.contrat', compact('finds'));
     }

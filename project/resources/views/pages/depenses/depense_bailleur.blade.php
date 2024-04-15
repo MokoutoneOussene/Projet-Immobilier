@@ -56,7 +56,7 @@
                                     <div class="col-lg-4 col-md-12">
                                         <div class="mb-3">
                                             <label>Date de la depense</label>
-                                            <input class="form-control" name="date" type="date" />
+                                            <input class="form-control" type="text" value="{{ date('d-m-Y') }}" readonly/>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                                 @foreach ($depenses as $item)
                                     <tr>
                                         <td>{{ $item->code }}</td>
-                                        <td>{{ $item->date }}</td>
+                                        <td>{{ $item->created_at->format('d-m-Y') }}</td>
                                         <td>{{ $item->Bailleur->nom }} {{ $item->Bailleur->prenom }}</td>
                                         <td>{{ $item->montant }} FCFA</td>
                                         <td>{{ $item->motif }}</td>

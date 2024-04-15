@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('encaissements', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique()->nullable();
-            $table->date('date_encaissement');
+            $table->date('date_encaissement')->nullable();
             $table->integer('montant');
             $table->string('periode');
             $table->string('annee');

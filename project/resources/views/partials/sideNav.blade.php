@@ -94,7 +94,7 @@
                         <div class="collapse" id="collapsePages345" data-bs-parent="#accordionSidenav">
                             <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
                                 <!-- Nested Sidenav Accordion (Pages -> Account)-->
-                                <a class="nav-link collapsed" href="{{ route('Gestion_utilisateur.create') }}">
+                                <a class="nav-link collapsed" href="{{ route('Gestion_paiements.index') }}">
                                     <div class="nav-link-icon"><i data-feather="users"></i></div>
                                     Gestions des salaires
                                 </a>

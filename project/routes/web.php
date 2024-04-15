@@ -10,6 +10,7 @@ use App\Http\Controllers\LocataireController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MaisonController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('delete_immeubles/{id}', [ImmeubleController::class, 'destroy']);
 
     Route::resource('Gestion_location', LocationController::class);
+    Route::get('encaissement_locations/{id}', [LocationController::class, 'encaiss_locat']);
 
     Route::resource('Gestion_maisons', MaisonController::class);
     Route::get('Maison/maison_libre', [MaisonController::class, 'maison_libre'])->name('maison_libre');
@@ -69,4 +71,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('Filter/depenses_date_filter', [DepenseController::class, 'date_filter'])->name('depense_date_filter');
     Route::get('Filter/filter_dep_bailleur', [DepenseController::class, 'filter_dep_bailleur'])->name('filter_dep_bailleur');
     Route::get('Filter/filter_dep_locat', [DepenseController::class, 'filter_dep_locat'])->name('filter_dep_locat');
+
+    Route::resource('Gestion_paiements', PaiementController::class);
+    Route::get('Filter/date_filter_paiement', [PaiementController::class, 'date_filter'])->name('date_filter_paiement');
 });
