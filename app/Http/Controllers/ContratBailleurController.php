@@ -49,7 +49,9 @@ class ContratBailleurController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $finds = ContratBailleur::find($id);
+
+        return view('pages.contrat_bailleur.show', compact('finds'));
     }
 
     /**

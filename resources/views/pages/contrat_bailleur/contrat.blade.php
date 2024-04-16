@@ -97,7 +97,7 @@
                                         <td>{{ $item->Bailleur->nom }} {{ $item->Bailleur->prenom }}</td>
                                         <td>{{ $item->Immeuble->adresse }} - {{ $item->Immeuble->nbr_locaux }}</td>
                                         <td class="text-center">
-                                            <a href="">
+                                            <a href="{{ route('Gestion_contrat_bailleur.show', [$item->id]) }}">
                                                 <i class="me-2 text-green" data-feather="eye"></i>
                                             </a>
                                         </td>

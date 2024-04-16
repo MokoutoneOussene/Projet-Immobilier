@@ -85,7 +85,7 @@
                                         <textarea cols="30" rows="2" class="form-control" readonly>{{ $finds->autres }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <p>Loyer immeuble : <strong>125000 FCFA</strong></p>
+                                        <p>Loyer immeuble : <strong>{{$total}} FCFA</strong></p>
                                     </div>
                                 </div>
                             </div>

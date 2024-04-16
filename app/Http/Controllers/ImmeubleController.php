@@ -47,7 +47,9 @@ class ImmeubleController extends Controller
     {
         $finds = Immeuble::find($id);
         $maisons = Maison::where('immeubles_id', '=', $id)->get();
-        return view('pages.immeubles.show', compact('finds', 'maisons'));
+        $total = $maisons->sum('loyer');
+
+        return view('pages.immeubles.show', compact('finds', 'maisons', 'total'));
     }
 
     /**
