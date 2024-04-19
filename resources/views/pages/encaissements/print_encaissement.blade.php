@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    @include('partials.meta')
+    @yield('title')
+    <title>Gestion Immobilier</title>
+    @yield('style')
+    @include('partials.style')
+    <style>
+        .inset-0 {
+            z-index: 999999999 !important;
+        }
+    </style>
+
+<body style="height: 90vh;">
+    <div class="container-fluid mt-1">
+        <div style="border-bottom: 1px solid black;">
+            <div class="d-flex col-md-12">
+                <div class="col-12">
+                    <h1 class="text-center mt-1" style="font-size: 20px;">
+                        <strong>AGENCE IMMOBILIERE BASSEM-YAM</strong>
+                    </h1>
+                    <h6 class="text-center mt-1">Gestion locative et promotion des activités immobilière</h6>
+                    <h5 class="text-center mt-1">Ouagadougou (à la Zone 1, à 200 mètre de la pédiatrie)</h5>
+                </div>
+            </div>
+            <div>
+                <p>Tel : 25 36 50 81 / 70 24 04 65</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <h5>Ouagadougou, le {{ date('d-m-Y') }}</h5>
+        </div>
+        <section class="mt-4 mb-4">
+            <div class="row m-1">
+                <div class="col-6 pt-2">
+                    <h3 class="mb-3">Quittence N° : {{ $finds->code }}</h3>
+                </div>
+                <div class="col-6 pt-2" style="background: rgb(216, 214, 214);">
+                    <h5>Cole location : <strong>{{ $finds->Location->code }}</strong></h5>
+                </div>
+            </div>
+            <h4>Doit : {{ $finds->Location->Locataire->nom }} {{ $finds->Location->Locataire->prenom }}</h4>
+        </section>
+        <section>
+            <table class="table table-bordered">
+                <tr style="background: rgb(202, 200, 200)">
+                    <th class="text-center">Désignation</th>
+                    <th class="text-center">Période</th>
+                    <th class="text-center">Montant</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Pour le paiement du loyer</p>
+                    </td>
+                    <td class="text-center">{{ $finds->periode }} {{ $finds->annee }}</td>
+                    <td class="text-center">{{ $finds->montant }}</td>
+                </tr>
+            </table>
+            <div class="d-flex justify-content-between m-1 bg-success p-2">
+                <div>
+                    <h4 class="text-light"><strong>TOTAL</strong></h4>
+                </div>
+                <div>
+                    <h4 class="text-light"><strong>{{ $finds->montant }} FCFA</strong></h4>
+                </div>
+            </div>
+            <h5>Arreté la présente facture à la somme de : <strong>{{conversion($finds->montant)}}</strong> ({{ $finds->montant }}) FRANCS CFA</h5>
+        </section>
+        <section class="mt-3" style="margin-bottom: 100px;">
+            <h5>Signature Agence</h5>
+        </section>
+
+        <section>
+            <p>
+                Chèrs(es) locataire, nous vous prions de bie vouloir vous présenter à chaque paiement avec un ancien reçu afin de faciliter votre identification au niveau du logiciel.
+            </p>
+            <p class="mt-3 text-center">Merci pour votre comprehension !</p>
+        </section>
+    </div>
+    <script>
+        window.print();
+    </script>
+</body>
+
+</html>
