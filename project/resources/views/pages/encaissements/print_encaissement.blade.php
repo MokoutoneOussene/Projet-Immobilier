@@ -21,8 +21,8 @@
                     <h1 class="text-center mt-1" style="font-size: 20px;">
                         <strong>AGENCE IMMOBILIERE BASSEM-YAM</strong>
                     </h1>
-                    <h6 class="text-center mt-1">Gestion locative et promotion des activités immobilière</h6>
-                    <h5 class="text-center mt-1">Ouagadougou (à la Zone 1, à 200 mètre de la pédiatrie)</h5>
+                    <h6 class="text-center mt-1">Gestion locative et promotion des activités immobilières</h6>
+                    <h5 class="text-center mt-1">Ouagadougou (à la Zone 1, à 200 mètres de la pédiatrie)</h5>
                 </div>
             </div>
             <div>
@@ -35,10 +35,10 @@
         <section class="mt-4 mb-4">
             <div class="row m-1">
                 <div class="col-6 pt-2">
-                    <h3 class="mb-3">Quittence N° : {{ $finds->code }}</h3>
+                    <h3 class="mb-3">Quittance N° : {{ $finds->code }}</h3>
                 </div>
                 <div class="col-6 pt-2" style="background: rgb(216, 214, 214);">
-                    <h5>Cole location : <strong>{{ $finds->Location->code }}</strong></h5>
+                    <h5>Code location : <strong>{{ $finds->Location->code }}</strong></h5>
                 </div>
             </div>
             <h4>Doit : {{ $finds->Location->Locataire->nom }} {{ $finds->Location->Locataire->prenom }}</h4>
@@ -66,17 +66,24 @@
                     <h4 class="text-light"><strong>{{ $finds->montant }} FCFA</strong></h4>
                 </div>
             </div>
-            <h5>Arreté la présente facture à la somme de : <strong>{{conversion($finds->montant)}}</strong> ({{ $finds->montant }}) FRANCS CFA</h5>
+            <h5>Arreté la présente facture à la somme de : <strong class="text-uppercase">{{conversion($finds->montant)}}</strong> ({{ $finds->montant }}) FRANCS CFA</h5>
         </section>
-        <section class="mt-3" style="margin-bottom: 100px;">
-            <h5>Signature Agence</h5>
+        <section class="mt-3" style="margin-bottom: 20px;">
+            <div class="">
+                <div style="margin-bottom: 90px;">
+                    <h5><strong>Signature Agence</strong></h5>
+                </div>
+                <div class="mt-5">
+                    <h5><strong>{{$finds->User->nom}} {{$finds->User->prenom}}</strong></h5>
+                </div>
+            </div>
         </section>
 
         <section>
             <p>
-                Chèrs(es) locataire, nous vous prions de bie vouloir vous présenter à chaque paiement avec un ancien reçu afin de faciliter votre identification au niveau du logiciel.
+                Chèrs(es) locataire, nous vous prions de bien vouloir vous présenter à chaque paiement avec un ancien reçu afin de faciliter votre identification au niveau du logiciel.
             </p>
-            <p class="mt-3 text-center">Merci pour votre comprehension !</p>
+            <p class="mt-3 text-center">Merci pour votre compréhension !</p>
         </section>
     </div>
     <script>

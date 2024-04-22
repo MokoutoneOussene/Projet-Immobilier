@@ -96,26 +96,29 @@
                             <i class="fas fa-dollar-sign fa-fw text-blue me-2"></i>
                             Faire un encaissement
                         </a>
-                        <a class="list-group-item list-group-item-action"
-                            href="{{ url('Contrat/gestion_contrat/' . $finds->id) }}">
-                            <i class="fas fa-tag fa-fw text-purple me-2"></i>
-                            Afficher le contrat
-                        </a>
-                        <a class="list-group-item list-group-item-action bg-danger"
-                            href="{{ url('form_resiliation/' . $finds->id) }}">
-                            <i class="fas fa-tag fa-fw text-light me-2"></i>
-                            Resilier le contrat
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                            href="{{ route('Gestion_location.edit', [$finds->id]) }}">
-                            <i class="fas fa-edit fa-fw text-warning me-2"></i>
-                            Modifier la location
-                        </a>
-                        <a class="list-group-item list-group-item-action"
-                            href="">
+                        @if (Auth::user()->role == 'Privilege' || Auth::user()->role == 'Secretaire')
+                            <a class="list-group-item list-group-item-action"
+                                href="{{ url('Contrat/gestion_contrat/' . $finds->id) }}">
+                                <i class="fas fa-tag fa-fw text-purple me-2"></i>
+                                Afficher le contrat
+                            </a>
+                            <a class="list-group-item list-group-item-action bg-danger"
+                                href="{{ url('form_resiliation/' . $finds->id) }}">
+                                <i class="fas fa-tag fa-fw text-light me-2"></i>
+                                Resilier le contrat
+                            </a>
+                            <a class="list-group-item list-group-item-action"
+                                href="{{ route('Gestion_location.edit', [$finds->id]) }}">
+                                <i class="fas fa-edit fa-fw text-warning me-2"></i>
+                                Modifier la location
+                            </a>
+                        @endif
+                        @if (Auth::user()->role == 'Privilege')
+                        <a class="list-group-item list-group-item-action"href="">
                             <i class="fas fa-close fa-fw text-danger me-2"></i>
                             Supprimer la location
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>

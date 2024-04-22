@@ -9,6 +9,7 @@ use App\Models\DepenseBailleur;
 use App\Models\DepenseLocataire;
 use App\Models\Locataire;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DepenseController extends Controller
@@ -56,7 +57,7 @@ class DepenseController extends Controller
         $date_debut = $request->date_debut;
         $date_fin = $request->date_fin;
 
-        $depenses = Depense::whereDate('created_at', '>=', $date_debut)->whereDate('created_at', '<=', $date_fin)->get();
+        $depenses = Depense::whereDate('date', '>=', $date_debut)->whereDate('date', '<=', $date_fin)->get();
         $total = $depenses->sum('montant');
 
         return view('pages.depenses.depense_courant', compact('depenses', 'total'));
@@ -105,7 +106,14 @@ class DepenseController extends Controller
      */
     public function store(Request $request)
     {
-        Depense::create($request->all());
+        $current_date = Carbon::now();
+        Depense::create([
+            'date' => $current_date,
+            'montant' => $request->montant,
+            'beneficier' => $request->beneficier,
+            'motif' => $request->motif,
+            'users_id' => $request->users_id,
+        ]);
 
         emotify('success', ' Dépense courante ajoutée avec success !');
         return redirect()->back();
@@ -116,7 +124,14 @@ class DepenseController extends Controller
      */
     public function store_depense_bailleur(Request $request)
     {
-        DepenseBailleur::create($request->all());
+        $current_date = Carbon::now();
+        DepenseBailleur::create([
+            'date' => $current_date,
+            'montant' => $request->montant,
+            'bailleurs_id' => $request->bailleurs_id,
+            'motif' => $request->motif,
+            'users_id' => $request->users_id,
+        ]);
 
         emotify('success', ' Dépense bailleur ajoutée avec success !');
         return redirect()->back();
@@ -127,7 +142,14 @@ class DepenseController extends Controller
      */
     public function store_depense_locataire(Request $request)
     {
-        DepenseLocataire::create($request->all());
+        $current_date = Carbon::now();
+        DepenseLocataire::create([
+            'date' => $current_date,
+            'montant' => $request->montant,
+            'locataires_id' => $request->locataires_id,
+            'motif' => $request->motif,
+            'users_id' => $request->users_id,
+        ]);
 
         emotify('success', ' Dépense locataire ajoutée avec success !');
         return redirect()->back();

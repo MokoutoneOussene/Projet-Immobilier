@@ -22,57 +22,61 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-12 mb-4">
-                <div class="card bg-warning text-white h-100">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="me-3">
-                                <div class="text-white-75 small">Nombre de contrats</div>
-                                <div class="text-lg fw-bold">{{ $locat_contrat->count() }}</div>
+            @if (Auth::user()->role !== 'Recouvrement')
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <div class="card bg-warning text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Nombre de contrats</div>
+                                    <div class="text-lg fw-bold">{{ $locat_contrat->count() }}</div>
+                                </div>
+                                <i class="feather-xl text-white-50" data-feather="calendar"></i>
                             </div>
-                            <i class="feather-xl text-white-50" data-feather="calendar"></i>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between small">
+                            <a class="text-white stretched-link" href="{{ route('Gestion_location.index') }}">Voir plus</a>
+                            <div class="text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
-                    <div class="card-footer d-flex align-items-center justify-content-between small">
-                        <a class="text-white stretched-link" href="{{ route('Gestion_location.index') }}">Voir plus</a>
-                        <div class="text-white"><i class="fas fa-angle-right"></i></div>
-                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-12 mb-4">
-                <div class="card bg-danger text-white h-100">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="me-3">
-                                <div class="text-white-75 small">Total des maisons</div>
-                                <div class="text-lg fw-bold">{{ $maisons_all->count() }}</div>
+            @endif
+            @if (Auth::user()->role == 'Privilege' || Auth::user()->role == 'Secretaire')
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <div class="card bg-danger text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total des maisons</div>
+                                    <div class="text-lg fw-bold">{{ $maisons_all->count() }}</div>
+                                </div>
+                                <i class="feather-xl text-white-50" data-feather="home"></i>
                             </div>
-                            <i class="feather-xl text-white-50" data-feather="home"></i>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between small">
+                            <a class="text-white stretched-link" href="{{ route('Gestion_maisons.index') }}">Voir plus</a>
+                            <div class="text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
-                    <div class="card-footer d-flex align-items-center justify-content-between small">
-                        <a class="text-white stretched-link" href="{{ route('Gestion_maisons.index') }}">Voir plus</a>
-                        <div class="text-white"><i class="fas fa-angle-right"></i></div>
-                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-12 mb-4">
-                <div class="card bg-success text-white h-100">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="me-3">
-                                <div class="text-white-75 small">Total des maison libre</div>
-                                <div class="text-lg fw-bold">{{ $maisons_libre->count() }}</div>
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <div class="card bg-success text-white h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total des maison libre</div>
+                                    <div class="text-lg fw-bold">{{ $maisons_libre->count() }}</div>
+                                </div>
+                                <i class="feather-xl text-white-50" data-feather="home"></i>
                             </div>
-                            <i class="feather-xl text-white-50" data-feather="home"></i>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between small">
+                            <a class="text-white stretched-link" href="{{ route('maison_libre') }}">Voir plus</a>
+                            <div class="text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
-                    <div class="card-footer d-flex align-items-center justify-content-between small">
-                        <a class="text-white stretched-link" href="{{ route('maison_libre') }}">Voir plus</a>
-                        <div class="text-white"><i class="fas fa-angle-right"></i></div>
-                    </div>
                 </div>
-            </div>
+            @endif
         </div>
         <!-- Example Charts for Dashboard Demo-->
         <div class="row">
@@ -119,7 +123,7 @@
                                     <th>Montant reglé</th>
                                     <th>Mois</th>
                                     <th>Année</th>
-                                    <th>OT</th>
+                                    <th>Receveur</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -133,7 +137,7 @@
                                     <td>{{ $item->montant }}</td>
                                     <td>{{ $item->periode }}</td>
                                     <td>{{ $item->annee }}</td>
-                                    <td>{{ $item->operation_terrain == 1 ? "Oui" : "Non" }}</td>
+                                    <td>{{ $item->User->nom }} {{ $item->User->prenom }}</td>
                                     <td class="text-center">
                                         <a class="text-center" href="{{ route('Gestion_encaissements.show', [$item->id]) }}">
                                             <i class="me-2 text-green" data-feather="eye"></i>

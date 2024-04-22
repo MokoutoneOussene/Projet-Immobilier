@@ -102,14 +102,18 @@
                                     <div class="card mb-4">
                                         <div class="card-header">Plus d'actions</div>
                                         <div class="list-group list-group-flush small">
-                                            <a class="list-group-item list-group-item-action" href="{{ route('Gestion_locataires.edit', [$finds->id]) }}">
-                                                <i class="fas fa-edit fa-fw text-warning me-2"></i>
-                                                Modifier le locataire
-                                            </a>
-                                            <a class="list-group-item list-group-item-action" href="{{ url('delete_locataire/' . $finds->id) }}" onclick="return confirm('Voulez vous vraiment supprimer cet element ?')">
-                                                <i class="fas fa-close fa-fw text-danger me-2"></i>
-                                                Supprimer le locataire
-                                            </a>
+                                            @if (Auth::user()->role == 'Privilege' || Auth::user()->role == 'Secretaire')
+                                                <a class="list-group-item list-group-item-action" href="{{ route('Gestion_locataires.edit', [$finds->id]) }}">
+                                                    <i class="fas fa-edit fa-fw text-warning me-2"></i>
+                                                    Modifier le locataire
+                                                </a>
+                                            @endif
+                                            @if (Auth::user()->role == 'Privilege')
+                                                <a class="list-group-item list-group-item-action" href="{{ url('delete_locataire/' . $finds->id) }}" onclick="return confirm('Voulez vous vraiment supprimer cet element ?')">
+                                                    <i class="fas fa-close fa-fw text-danger me-2"></i>
+                                                    Supprimer le locataire
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

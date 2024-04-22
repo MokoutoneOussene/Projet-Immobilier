@@ -13,7 +13,7 @@
         }
     </style>
 
-<body class="nav-fixed">
+<body class="nav-fixed" style="height: 90vh;">
     <div class="container-fluid mt-1">
         <div style="border-bottom: 1px solid black;">
             <div class="d-flex col-md-12">
@@ -47,7 +47,7 @@
                 <th class="text-center">{{$finds->Location->Locataire->caution_verse}}</th>
             </tr>
             <tr>
-                <td>Loyer du dernier mois</td>
+                <td>Mois du</td>
                 <td class="text-center">{{ $finds->last_mois }}</td>
             </tr>
             <tr>
@@ -58,7 +58,43 @@
                 <td>Plomberie</td>
                 <td class="text-center">{{ $finds->refec_plomberie }}</td>
             </tr>
+            <tr>
+                <td>Travaux d'electricité</td>
+                <td class="text-center">{{ $finds->trav_electricite }}</td>
+            </tr>
+            <tr>
+                <td>Redevance SONABEL</td>
+                <td class="text-center">{{ $finds->redev_sonabel }}</td>
+            </tr>
+            <tr>
+                <td>Facture ONEA</td>
+                <td class="text-center">{{ $finds->facture_onea }}</td>
+            </tr>
+            <tr style="background: rgb(202, 200, 200)">
+                <th>Total dépense</th>
+                <th class="text-center">{{ $finds->facture_onea+$finds->redev_sonabel+$finds->trav_electricite+$finds->refec_plomberie+$finds->refec_peinture+$finds->last_mois }}</th>
+            </tr>
+            <tr style="background: rgb(202, 200, 200)">
+                <th>Somme restante pour le locataire</th>
+                <th class="text-center">{{ $finds->restant }}</th>
+            </tr>
         </table>
+        <p>
+            Je sousigné, {{$finds->Location->Locataire->nom}} {{$finds->Location->Locataire->prenom}} 
+            CNIB ou Passport N° {{ $finds->Location->Locataire->cnib }}, Tél: {{ $finds->Location->Locataire->telephone }}, 
+            reconnais avoir résilié mon contrat de location auprès de l'agence Immobilière BASSEM-YAM.
+            Après avoir effectué toutes les taches qui me revenaient en charge, la somme de <strong>{{conversion($finds->restant)}}</strong>
+            ({{ $finds->restant }}) Francs FCFA à été retenu pour la caution.
+        </p>
+        <p class="mt-2 text-center"><strong>Lu et approuvé par le locataire</strong></p>
+        <div class="d-flex justify-content-between mt-5">
+            <div>
+                <strong>L'AGENCE</strong>
+            </div>
+            <div>
+                <strong>{{$finds->Location->Locataire->nom}} {{$finds->Location->Locataire->prenom}}</strong>
+            </div>
+        </div>
     </div>
     <script>
         window.print();

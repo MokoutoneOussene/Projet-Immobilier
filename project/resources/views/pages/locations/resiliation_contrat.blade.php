@@ -96,7 +96,7 @@
                                                 <div class="row mt-3">
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
-                                                            <label>Dernier mois</label>
+                                                            <label>Mois du</label>
                                                             <input type="number" name="last_mois" class="form-control" placeholder="0">
                                                         </div>
                                                     </div>

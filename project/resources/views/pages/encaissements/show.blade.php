@@ -74,18 +74,22 @@
                 <div class="card mb-4">
                     <div class="card-header">Plus d'actions</div>
                     <div class="list-group list-group-flush small">
-                        <a class="list-group-item list-group-item-action" href="{{ url('Impression/print_encaissement/' . $finds->id) }}">
-                            <i class="fas fa-print fa-fw text-success me-2"></i>
-                            Imprimer l'encaissement
-                        </a>
-                        <a class="list-group-item list-group-item-action" href="{{ route('Gestion_encaissements.edit', [$finds->id]) }}">
-                            <i class="fas fa-edit fa-fw text-warning me-2"></i>
-                            Modifier l'encaissement
-                        </a>
-                        <a class="list-group-item list-group-item-action" href="{{ url('delete_encaissement/' . $finds->id) }}" onclick="return confirm('Voulez vous vraiment supprimer cet element ?')">
-                            <i class="fas fa-close fa-fw text-danger me-2"></i>
-                            Supprimer l'encaissement
-                        </a>
+                        @if (Auth::user()->role !== 'Recouvrement')
+                            <a class="list-group-item list-group-item-action" href="{{ url('Impression/print_encaissement/' . $finds->id) }}">
+                                <i class="fas fa-print fa-fw text-success me-2"></i>
+                                Imprimer l'encaissement
+                            </a>
+                        @endif
+                        @if (Auth::user()->role == 'Privilege' || Auth::user()->role == 'Secretaire')
+                            <a class="list-group-item list-group-item-action" href="{{ route('Gestion_encaissements.edit', [$finds->id]) }}">
+                                <i class="fas fa-edit fa-fw text-warning me-2"></i>
+                                Modifier l'encaissement
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="{{ url('delete_encaissement/' . $finds->id) }}" onclick="return confirm('Voulez vous vraiment supprimer cet element ?')">
+                                <i class="fas fa-close fa-fw text-danger me-2"></i>
+                                Supprimer l'encaissement
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

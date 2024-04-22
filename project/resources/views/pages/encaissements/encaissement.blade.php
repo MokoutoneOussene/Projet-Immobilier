@@ -63,7 +63,7 @@
                                     <th>Montant reglé</th>
                                     <th>Mois</th>
                                     <th>Année</th>
-                                    <th>OT</th>
+                                    <th>Receveur</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -77,7 +77,7 @@
                                         <td>{{ $item->montant }}</td>
                                         <td>{{ $item->periode }}</td>
                                         <td>{{ $item->annee }}</td>
-                                        <td>{{ $item->operation_terrain == 1 ? 'Oui' : 'Non' }}</td>
+                                        <td>{{ $item->User->nom}} {{ $item->User->prenom}}</td>
                                         <td class="text-center">
                                             <a class="text-center"
                                                 href="{{ route('Gestion_encaissements.show', [$item->id]) }}">

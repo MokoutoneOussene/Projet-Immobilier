@@ -124,12 +124,6 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                {{-- <div class="col-lg-6 col-md-12">
-                                                    <div class="mb-3">
-                                                        <label>Username <span class="text-danger">*</span></label>
-                                                        <input class="form-control" name="login" type="text" placeholder="H.mitchel" required />
-                                                    </div>
-                                                </div> --}}
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-12">

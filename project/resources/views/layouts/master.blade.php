@@ -4,7 +4,7 @@
 <head>
     @include('partials.meta')
     @yield('title')
-    <title>Gestion Immobilier</title>
+    <title>Gestion Immobilière</title>
     @yield('style')
     @include('partials.style')
     <style>

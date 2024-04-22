@@ -9,12 +9,14 @@
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
                             GESTION DES LOCATAIRES
                         </h1>
-                        <div class="page-header-subtitle mt-3">
-                            <a class="btn btn-success" href="#!" class="btn btn-success" data-bs-toggle="modal"
-                            data-bs-target="#formLocataireBackdrop">
-                                Ajouter un locataire
-                            </a>
-                        </div>
+                        @if (Auth::user()->role == 'Privilege' || Auth::user()->role == 'Secretaire')
+                            <div class="page-header-subtitle mt-3">
+                                <a class="btn btn-success" href="#!" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#formLocataireBackdrop">
+                                    Ajouter un locataire
+                                </a>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-12 col-xl-auto mt-4">
                         <div class="input-group input-group-joined border-0" style="width: 16.5rem">
