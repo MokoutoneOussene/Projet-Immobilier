@@ -71,7 +71,7 @@ class DepenseController extends Controller
         $date_debut = $request->date_debut;
         $date_fin = $request->date_fin;
 
-        $depenses = DepenseBailleur::whereDate('created_at', '>=', $date_debut)->whereDate('created_at', '<=', $date_fin)->get();
+        $depenses = DepenseBailleur::whereDate('date', '>=', $date_debut)->whereDate('date', '<=', $date_fin)->get();
         $bailleurs = Bailleur::latest()->get();
         $total = $depenses->sum('montant');
 
@@ -86,7 +86,7 @@ class DepenseController extends Controller
         $date_debut = $request->date_debut;
         $date_fin = $request->date_fin;
 
-        $depenses = DepenseLocataire::whereDate('created_at', '>=', $date_debut)->whereDate('created_at', '<=', $date_fin)->get();
+        $depenses = DepenseLocataire::whereDate('date', '>=', $date_debut)->whereDate('date', '<=', $date_fin)->get();
         $locataires = Locataire::latest()->get();
         $total = $depenses->sum('montant');
 
@@ -166,7 +166,23 @@ class DepenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit_courant(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit_bailleur(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit_locataire(string $id)
     {
         //
     }
@@ -182,8 +198,36 @@ class DepenseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy_courant(string $id)
     {
-        //
+        $encaiss = Depense::find($id);
+        $encaiss->delete();
+
+        emotify('error', ' Depense supprimer avec success !');
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy_bailleur(string $id)
+    {
+        $encaiss = DepenseBailleur::find($id);
+        $encaiss->delete();
+
+        emotify('error', ' Depense supprimer avec success !');
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy_locataire(string $id)
+    {
+        $encaiss = DepenseLocataire::find($id);
+        $encaiss->delete();
+
+        emotify('error', ' Depense supprimer avec success !');
+        return redirect()->back();
     }
 }

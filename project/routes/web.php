@@ -76,6 +76,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('Filter/depenses_date_filter', [DepenseController::class, 'date_filter'])->name('depense_date_filter');
     Route::get('Filter/filter_dep_bailleur', [DepenseController::class, 'filter_dep_bailleur'])->name('filter_dep_bailleur');
     Route::get('Filter/filter_dep_locat', [DepenseController::class, 'filter_dep_locat'])->name('filter_dep_locat');
+    Route::get('delete_dep_courant/{id}', [DepenseController::class, 'destroy_courant']);
+    Route::get('delete_dep_bailleur/{id}', [DepenseController::class, 'destroy_bailleur']);
+    Route::get('delete_dep_locataire/{id}', [DepenseController::class, 'destroy_locataire']);
 
     Route::resource('Gestion_paiements', PaiementController::class);
     Route::get('Filter/date_filter_paiement', [PaiementController::class, 'date_filter'])->name('date_filter_paiement');
