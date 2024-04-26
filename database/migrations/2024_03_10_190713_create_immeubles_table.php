@@ -17,9 +17,12 @@ return new class extends Migration
             $table->string('code')->unique()->nullable();
             $table->string('autres')->nullable();
             $table->string('nbr_locaux')->nullable();
-            $table->integer('bailleurs_id')->nullable();
+
+            $table->foreignId('bailleurs_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('total_loyer')->nullable();
             $table->string('reference')->nullable();
+
             $table->timestamps();
         });
     }

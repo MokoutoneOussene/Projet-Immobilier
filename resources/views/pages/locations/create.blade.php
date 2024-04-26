@@ -49,6 +49,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-12">
                                                             <input type="text" name="users_id" class="form-control" value="{{ Auth::user()->id }}" hidden>
+                                                            <input type="text" name="situation" class="form-control" value="En cours" hidden>
                                                             <div class="mb-3">
                                                                 <label>Locataire</label>
                                                                 <select name="locataires_id" class="form-control js-example-basic-single2">
