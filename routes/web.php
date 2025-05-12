@@ -47,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('Gestion_immeuble', ImmeubleController::class);
     Route::get('delete_immeubles/{id}', [ImmeubleController::class, 'destroy']);
-    
+
     Route::resource('Gestion_location', LocationController::class);
     Route::get('encaissement_locations/{id}', [LocationController::class, 'encaiss_locat']);
     Route::get('form_resiliation/{id}', [LocationController::class, 'form_resiliation']);

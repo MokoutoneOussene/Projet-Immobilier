@@ -49,13 +49,14 @@
                                     <div class="col-lg-4 col-md-12">
                                         <div class="mb-3">
                                             <label>Montant de la dépense</label>
-                                            <input class="form-control" name="montant" type="number" />
+                                            <input class="form-control" name="montant" type="number" required />
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <div class="mb-3">
                                             <label>Date de la depense</label>
-                                            <input class="form-control" type="text" value="{{ date('d-m-Y') }}" readonly/>
+                                            <input class="form-control" type="text" value="{{ date('d-m-Y') }}"
+                                                readonly />
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +67,10 @@
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-save"></i>
+                                        &nbsp; &nbsp; Enregistrer
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -129,7 +133,8 @@
                                                 <div class="modal-dialog modal-xl">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="staticBackdropLabel">Detail de depense {{ $item->code }}</h5>
+                                                            <h5 class="modal-title" id="staticBackdropLabel">Detail de
+                                                                depense {{ $item->code }}</h5>
                                                             <button type="button" class="btn-close text-dark"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
@@ -142,14 +147,18 @@
                                                                             <div class="sbp-preview-content">
                                                                                 <table class="table table-bordered">
                                                                                     <tr>
-                                                                                        <th class="text-center">Identifiant</th>
-                                                                                        <th class="text-center">Beneficier(e)</th>
+                                                                                        <th class="text-center">Identifiant
+                                                                                        </th>
+                                                                                        <th class="text-center">
+                                                                                            Beneficier(e)</th>
                                                                                         <th class="text-center">Motif</th>
-                                                                                        <th class="text-center">Montant</th>
+                                                                                        <th class="text-center">Montant
+                                                                                        </th>
                                                                                         <th class="text-center">Date</th>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <td height="150">{{ $item->code }}</td>
+                                                                                        <td height="150">
+                                                                                            {{ $item->code }}</td>
                                                                                         <td>{{ $item->beneficier }}</td>
                                                                                         <td>{{ $item->motif }}</td>
                                                                                         <td>{{ $item->montant }} FCFA</td>
@@ -157,15 +166,19 @@
                                                                                     </tr>
                                                                                 </table>
                                                                                 <div class="d-flex justify-content-end">
-                                                                                    <h6>Operation effectué : {{ $item->User->nom }} {{ $item->User->prenom }}</h6>
+                                                                                    <h6>Operation effectué :
+                                                                                        {{ $item->User->nom }}
+                                                                                        {{ $item->User->prenom }}</h6>
                                                                                 </div>
                                                                                 <div class="mt-3">
                                                                                     <a href="" type="button"
                                                                                         class="btn btn-success">
-                                                                                        <i class="fas fa-print" style="margin-right: 5px;"></i>
+                                                                                        <i class="fas fa-print"
+                                                                                            style="margin-right: 5px;"></i>
                                                                                         Ipprimer
                                                                                     </a>
-                                                                                    <button type="button" class="btn btn-danger"
+                                                                                    <button type="button"
+                                                                                        class="btn btn-danger"
                                                                                         data-bs-dismiss="modal">Fermer</button>
                                                                                 </div>
                                                                             </div>

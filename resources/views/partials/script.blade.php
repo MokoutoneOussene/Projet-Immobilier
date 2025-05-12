@@ -22,8 +22,6 @@
 
 <script src="{{ asset('assets.startbootstrap.com/js/sb-customizer.js') }}"></script>
 
-<sb-customizer project="sb-admin-pro"></sb-customizer>
-
 <x-notify::notify />
 @notifyJs
 

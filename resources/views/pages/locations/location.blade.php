@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <header class="page-header page-header-dark pb-10"
-        style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);">
+    <header class="page-header page-header-dark pb-10" style="background: rgb(97, 159, 138);">
         <div class="container-xl px-4">
             <div class="page-header-content pt-4">
                 <div class="row align-items-center justify-content-between">
@@ -11,8 +10,9 @@
                             LOCATIONS ET CONTRATS
                         </h1>
                         <div class="page-header-subtitle mt-3">
-                            <a class="btn btn-success" href="{{ route('Gestion_location.create') }}" class="btn btn-success">
-                                Ajouter une nouvelle location
+                            <a class="btn btn-primary" href="{{ route('Gestion_location.create') }}" class="btn btn-success">
+                                <i class="fas fa-plus"></i>
+                                &nbsp; &nbsp; Ajouter une nouvelle location
                             </a>
                         </div>
                     </div>
@@ -53,7 +53,8 @@
                                     <tr>
                                         <td>{{ $item->code }}</td>
                                         <td>{{ $item->Locataire->nom }} {{ $item->Locataire->prenom }}</td>
-                                        <td>{{ $item->Maison->Immeuble->Bailleur->nom }} {{ $item->Maison->Immeuble->Bailleur->prenom }}</td>
+                                        <td>{{ $item->Maison->Immeuble->Bailleur->nom }}
+                                            {{ $item->Maison->Immeuble->Bailleur->prenom }}</td>
                                         <td>{{ $item->Maison->type_maison }}</td>
                                         <td>{{ $item->Maison->adresse }}</td>
                                         <td>{{ $item->Maison->loyer }}</td>

@@ -12,7 +12,8 @@
                         </h1>
                         <div class="page-header-subtitle mt-3">
                             <a class="btn btn-success" href="{{ route('Gestion_immeuble.create') }}" class="btn btn-success">
-                                Ajouter un nouveau immeuble
+                                <i class="fas fa-plus"></i>
+                                &nbsp; &nbsp; Ajouter un nouveau immeuble
                             </a>
                         </div>
                     </div>

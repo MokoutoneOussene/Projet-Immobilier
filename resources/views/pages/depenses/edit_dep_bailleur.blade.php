@@ -8,7 +8,7 @@
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
-                            MODIFIER DEPENSE N° {{$finds->id}}
+                            MODIFIER DEPENSE N° {{ $finds->id }}
                         </h1>
                         <div class="page-header-subtitle mt-3">
                             Modifier la depenses au compte des bailleurs
@@ -37,7 +37,8 @@
                         <div class="sbp-preview-content">
                             <form method="POST" action="{{ route('store_depense_bailleur') }}">
                                 @csrf
-                                <input type="text" name="users_id" class="form-control" value="{{ Auth::user()->id }}" hidden>
+                                <input type="text" name="users_id" class="form-control" value="{{ Auth::user()->id }}"
+                                    hidden>
                                 <div class="row mt-3">
                                     <div class="col-lg-4 col-md-12">
                                         <div class="mb-3">
@@ -50,25 +51,29 @@
                                     <div class="col-lg-4 col-md-12">
                                         <div class="mb-3">
                                             <label>Montant de la dépense</label>
-                                            <input class="form-control" name="montant" value="{{$finds->montant}}" type="number"/>
+                                            <input class="form-control" name="montant" value="{{ $finds->montant }}"
+                                                type="number" />
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <div class="mb-3">
                                             <label>Date de la depense</label>
-                                            <input class="form-control" type="text" value="{{ date('d-m-Y') }}" readonly/>
+                                            <input class="form-control" type="text" value="{{ date('d-m-Y') }}"
+                                                readonly />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <label>Motif de la depense</label>
-                                        <textarea name="motif" class="form-control" rows="3">{{$finds->motif}}</textarea>
+                                        <textarea name="motif" class="form-control" rows="3">{{ $finds->motif }}</textarea>
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-success">Enregistrer</button>
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-save"></i>
+                                        &nbsp; &nbsp; Enregistrer
+                                    </button>
                                 </div>
                             </form>
                         </div>

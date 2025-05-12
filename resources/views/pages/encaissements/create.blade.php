@@ -10,12 +10,12 @@
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
                             GESTION DES ENCAISSEMENTS
                         </h1>
-                        <div class="page-header-subtitle mt-3">
+                        {{-- <div class="page-header-subtitle mt-3">
                             <a class="btn btn-success" href="#!" class="btn btn-success" data-bs-toggle="modal"
                                 data-bs-target="#formUserBackdrop">
                                 Ajouter un nouveau encaissement
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-12 col-xl-auto mt-4">
                         <div class="input-group input-group-joined border-0" style="width: 16.5rem">
@@ -45,14 +45,18 @@
                                         <div class="sbp-preview-content">
                                             <form method="POST" action="{{ route('Gestion_encaissements.store') }}">
                                                 @csrf
-                                                <input type="text" name="users_id" class="form-control" value="{{ Auth::user()->id }}" hidden>
-                                                <div class="p-2 m-1" style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
-                                                    <h6 class="m-2 text-center text-danger">Information sur le locataire</h6>
+                                                <input type="text" name="users_id" class="form-control"
+                                                    value="{{ Auth::user()->id }}" hidden>
+                                                <div class="p-2 m-1"
+                                                    style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
+                                                    <h6 class="m-2 text-center text-danger">Information sur le locataire
+                                                    </h6>
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-12">
                                                             <div class="mb-3">
                                                                 <label>Code location</label>
-                                                                <select name="locations_id" class="form-control js-example-basic-single" required>
+                                                                <select name="locations_id"
+                                                                    class="form-control js-example-basic-single" required>
 
                                                                 </select>
                                                             </div>
@@ -62,19 +66,22 @@
                                                         <div class="col-lg-4 col-md-12">
                                                             <div class="mb-3">
                                                                 <label>Nom</label>
-                                                                <input class="form-control" type="text" id="nom" readonly />
+                                                                <input class="form-control" type="text" id="nom"
+                                                                    readonly />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-12">
                                                             <div class="mb-3">
                                                                 <label>Prénom</label>
-                                                                <input class="form-control" type="text" id="prenom" readonly />
+                                                                <input class="form-control" type="text" id="prenom"
+                                                                    readonly />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-12">
                                                             <div class="mb-3">
                                                                 <label>N° CNIB ou Passport</label>
-                                                                <input class="form-control" type="text" id="cnib" readonly />
+                                                                <input class="form-control" type="text" id="cnib"
+                                                                    readonly />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -82,7 +89,8 @@
                                                         <div class="col-lg-4 col-md-12">
                                                             <div class="mb-3">
                                                                 <label>Téléphone</label>
-                                                                <input class="form-control" type="text" id="telephone" readonly />
+                                                                <input class="form-control" type="text" id="telephone"
+                                                                    readonly />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-12">
@@ -172,7 +180,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="mt-3">
-                                                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="fas fa-save"></i>
+                                                        &nbsp; &nbsp;Enregistrer
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
@@ -233,19 +244,20 @@
         });
     </script>
 
-<script>
-    document.getElementById('locationSelect').addEventListener('change', function() {
-        var selectedOption = this.options[this.selectedIndex];
-        document.getElementById('nom').value = selectedOption.getAttribute('data-nom');
-        document.getElementById('prenom').value = selectedOption.getAttribute('data-prenom');
-        document.getElementById('cnib').value = selectedOption.getAttribute('data-cnib');
-        document.getElementById('telephone').value = selectedOption.getAttribute('data-telephone');
-        document.getElementById('profession').value = selectedOption.getAttribute('data-profession');
-        document.getElementById('quartier').value = selectedOption.getAttribute('data-quartier');
+    <script>
+        document.getElementById('locationSelect').addEventListener('change', function() {
+            var selectedOption = this.options[this.selectedIndex];
+            document.getElementById('nom').value = selectedOption.getAttribute('data-nom');
+            document.getElementById('prenom').value = selectedOption.getAttribute('data-prenom');
+            document.getElementById('cnib').value = selectedOption.getAttribute('data-cnib');
+            document.getElementById('telephone').value = selectedOption.getAttribute('data-telephone');
+            document.getElementById('profession').value = selectedOption.getAttribute('data-profession');
+            document.getElementById('quartier').value = selectedOption.getAttribute('data-quartier');
 
-        document.getElementById('code').value = selectedOption.getAttribute('data-code');
-        document.getElementById('adresse').value = selectedOption.getAttribute('data-adresse');
-        document.getElementById('loyer').value = selectedOption.getAttribute('data-loyer');
-    });
-</script>
+            document.getElementById('code').value = selectedOption.getAttribute('data-code');
+            document.getElementById('adresse').value = selectedOption.getAttribute('data-adresse');
+            document.getElementById('loyer').value = selectedOption.getAttribute('data-loyer');
+        });
+    </script>
 @endsection
+

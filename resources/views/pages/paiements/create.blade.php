@@ -8,11 +8,13 @@
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
-                            PROPRIETAIRE N° : 
+                            PROPRIETAIRE N° :
                         </h1>
                         <div class="page-header-subtitle mt-3">
-                            <a class="btn btn-success" href="{{ route('Gestion_paiements.index') }}" class="btn btn-success">
-                                Liste des paiements
+                            <a class="btn btn-success" href="{{ route('Gestion_paiements.index') }}"
+                                class="btn btn-success">
+                               <i data-feather="grid"></i>
+                               &nbsp; &nbsp; Liste des paiements
                             </a>
                         </div>
                     </div>
@@ -44,21 +46,24 @@
                                         <div class="sbp-preview-content">
                                             <form method="POST" action="{{ route('Gestion_paiements.store') }}">
                                                 @csrf
-                                                <div class="p-2 m-1" style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
+                                                <div class="p-2 m-1"
+                                                    style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-12">
                                                             <div class="mb-3">
                                                                 <label>Personnel <span class="text-danger">*</span></label>
                                                                 <select name="users_id" class="form-control">
                                                                     @foreach ($collection as $item)
-                                                                        <option value="{{ $item->id }}">{{ $item->nom }} {{ $item->prenom }}</option>
+                                                                        <option value="{{ $item->id }}">
+                                                                            {{ $item->nom }} {{ $item->prenom }}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-12">
                                                             <label>Date de paiement</label>
-                                                            <input type="text" class="form-control" value="{{date('d-m-Y')}}" readonly>
+                                                            <input type="text" class="form-control"
+                                                                value="{{ date('d-m-Y') }}" readonly>
                                                         </div>
                                                         <div class="col-lg-6 col-md-12">
                                                             <label>Mois concerné</label>
@@ -101,7 +106,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="mt-3">
-                                                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="fas fa-save"></i>
+                                                        &nbsp; &nbsp; Enregistrer
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>

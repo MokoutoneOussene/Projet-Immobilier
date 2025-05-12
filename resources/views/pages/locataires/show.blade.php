@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <header class="page-header page-header-dark pb-10" style="background: rgb(129, 56, 56)">
+    <header class="page-header page-header-dark pb-10" style="background: rgb(97, 159, 138);">
         <div class="container-xl px-4">
             <div class="page-header-content pt-4">
                 <div class="row align-items-center justify-content-between">

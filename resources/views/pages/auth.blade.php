@@ -22,23 +22,26 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-center">
-                            <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="logo" style="width: 40%">
+                            <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="logo"
+                                style="width: 40%">
                         </div>
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
-                            <div class="mb-3 mt-1" style="background: linear-gradient(90deg, rgb(160, 240, 195) 0%, rgb(237, 237, 163) 100%); border-radius: 5px;">
+                            <div class="mb-3 mt-1"
+                                style="background: linear-gradient(90deg, rgb(160, 240, 195) 0%, rgb(237, 237, 163) 100%); border-radius: 5px;">
                                 <div class="d-flex justify-content-between p-3">
                                     <div class="ml-3 mt-2">
                                         <label for="admin">Administration</label>
-                                        <input type="radio" name="role" id="admin" value="Administration" checked>
+                                        <input type="radio" name="role" id="admin" value="Administration"
+                                            checked>
                                     </div>
                                     <div class="ml-3 mt-2">
                                         <label for="caisse">Caisse</label>
-                                        <input type="radio" name="role" id="caisse" value="Caisse" >
+                                        <input type="radio" name="role" id="caisse" value="Caisse">
                                     </div>
                                     <div class="ml-3 mt-2">
                                         <label for="ctl">Controle</label>
-                                        <input type="radio" name="role" id="ctl" value="Controle" >
+                                        <input type="radio" name="role" id="ctl" value="Controle">
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-between p-3">
@@ -48,19 +51,21 @@
                                     </div>
                                     <div class="ml-3 mt-2">
                                         <label for="recouv">Recouvrement</label>
-                                        <input type="radio" name="role" id="recouv" value="Recouvrement" >
+                                        <input type="radio" name="role" id="recouv" value="Recouvrement">
                                     </div>
                                     <div class="ml-3 mt-2">
                                         <label for="privil">Privilege</label>
-                                        <input type="radio" name="role" id="privil" value="Privilege" >
+                                        <input type="radio" name="role" id="privil" value="Privilege">
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <input class="form-control" name="login" type="text" placeholder="Entrer votre nom d'utilisateur" />
+                                <input class="form-control" name="login" type="text"
+                                    placeholder="Entrer votre nom d'utilisateur" />
                             </div>
                             <div class="mb-3">
-                                <input class="form-control" name="password" type="password" placeholder="Entrer votre mot de passe" />
+                                <input class="form-control" name="password" type="password"
+                                    placeholder="Entrer votre mot de passe" />
                             </div>
                             <div class="mt-4 mb-0">
                                 <button class="btn btn-primary" type="submit">Se connecter</button>

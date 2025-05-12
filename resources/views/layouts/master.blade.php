@@ -15,13 +15,12 @@
 
 <body class="nav-fixed">
     @include('partials.header')
-    <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content">
 
-        @yield('content')
+            @yield('content')
 
-        @include('partials.footer')
-    </div>
-    </div>
+            @include('partials.footer')
+        </div>
     @include('partials.script')
 </body>
 

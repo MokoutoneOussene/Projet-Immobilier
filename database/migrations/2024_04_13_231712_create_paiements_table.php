@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('montant')->nullable();
             $table->integer('bonus')->nullable();
             $table->integer('total')->nullable();
-
+            
             $table->foreignId('users_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

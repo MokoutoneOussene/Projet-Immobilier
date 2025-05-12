@@ -39,7 +39,7 @@
                             <a class="nav-link" href="{{ route('etat_general') }}">Etat général</a>
                         </nav>
                     </div>
-                    @if (Auth::user()->role == 'Privilege' || Auth::user()->role == 'Secretaire' || Auth::user()->role == 'Administration' || Auth::user()->role == 'Caisse')   
+                    @if (Auth::user()->role == 'Privilege' || Auth::user()->role == 'Secretaire' || Auth::user()->role == 'Administration' || Auth::user()->role == 'Caisse')
                         <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
                             data-bs-target="#pagesCollapseErrorST" aria-expanded="false" aria-controls="pagesCollapseError">
                             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
@@ -48,11 +48,10 @@
                         </a>
                         <div class="collapse" id="pagesCollapseErrorST" data-bs-parent="#accordionSidenavPagesMenu">
                             <nav class="sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{ route('Gestion_depense_courant.index') }}">Dépenses
-                                    courante</a>
+                                <a class="nav-link" href="{{ route('Gestion_depense_courant.index') }}">Dépenses courante</a>
                                 <a class="nav-link" href="{{ route('depense_bailleur') }}">Dépenses bailleur</a>
                                 <a class="nav-link" href="{{ route('depense_locataire') }}">Dépenses locataire</a>
-                                <a class="nav-link" href="">Etat des dépenses</a>
+                                {{-- <a class="nav-link" href="">Etat des dépenses</a> --}}
                             </nav>
                         </div>
                     @endif

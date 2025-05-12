@@ -41,50 +41,60 @@
                                 <div class="card mb-4">
                                     <div class="card-body">
                                         <div class="sbp-preview-content">
-                                            <form method="POST" action="{{ route('Gestion_immeuble.update', [$finds->id]) }}">
+                                            <form method="POST"
+                                                action="{{ route('Gestion_immeuble.update', [$finds->id]) }}">
                                                 @csrf
                                                 @method('PATCH')
-                                                <div class="p-2 m-1" style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
-                                                <h6 class="m-2 text-center text-danger">Information sur l'immeuble</h6>
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-12">
-                                                        <div class="mb-3">
-                                                            <label>Nom du bailleur<span class="text-danger">*</span></label>
-                                                            <select name="bailleurs_id" class="form-control js-example-basic-single">
+                                                <div class="p-2 m-1"
+                                                    style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
+                                                    <h6 class="m-2 text-center text-danger">Information sur l'immeuble</h6>
+                                                    <div class="row">
+                                                        <div class="col-lg-4 col-md-12">
+                                                            <div class="mb-3">
+                                                                <label>Nom du bailleur<span
+                                                                        class="text-danger">*</span></label>
+                                                                <select name="bailleurs_id"
+                                                                    class="form-control js-example-basic-single">
 
-                                                            </select>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-12">
+                                                            <div class="mb-3">
+                                                                <label>Adresse <span class="text-danger">*</span></label>
+                                                                <input class="form-control" name="adresse" type="text"
+                                                                    value="{{ $finds->adresse }}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-12">
+                                                            <div class="mb-3">
+                                                                <label>Nombre de locaux<span
+                                                                        class="text-danger">*</span></label>
+                                                                <input class="form-control" name="nbr_locaux" type="number"
+                                                                    value="{{ $finds->nbr_locaux }}" />
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-4 col-md-12">
-                                                        <div class="mb-3">
-                                                            <label>Adresse <span class="text-danger">*</span></label>
-                                                            <input class="form-control" name="adresse" type="text" value="{{ $finds->adresse }}"/>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="mb-3">
+                                                                <label>Référence de la parcelle</label>
+                                                                <textarea name="reference" class="form-control" cols="30" rows="3" value="{{ $finds->reference }}">{{ $finds->reference }}</textarea>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-12">
-                                                        <div class="mb-3">
-                                                            <label>Nombre de locaux<span class="text-danger">*</span></label>
-                                                            <input class="form-control" name="nbr_locaux" type="number" value="{{ $finds->nbr_locaux }}"/>
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="mb-3">
+                                                                <label>Autres informations</label>
+                                                                <textarea name="autres" class="form-control" cols="30" rows="3" value="{{ $finds->reference }}">{{ $finds->autres }}</textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-12">
-                                                        <div class="mb-3">
-                                                            <label>Référence de la parcelle</label>
-                                                            <textarea name="reference" class="form-control" cols="30" rows="3" value="{{ $finds->reference }}">{{ $finds->reference }}</textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-md-12">
-                                                        <div class="mb-3">
-                                                            <label>Autres informations</label>
-                                                            <textarea name="autres" class="form-control" cols="30" rows="3" value="{{ $finds->reference }}">{{ $finds->autres }}</textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                                 <div class="mt-3">
-                                                    <button type="submit" class="btn btn-success">Modifier</button>
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="fas fa-edit"></i>
+                                                        &nbsp; &nbsp; Modifier
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>

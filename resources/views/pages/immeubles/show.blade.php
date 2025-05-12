@@ -10,8 +10,9 @@
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
                             Fiche de l'immeuble N°: {{ $finds->id }}
                         </h1>
-                        <div class="page-header-subtitle mt-4 text-warning">Tout les traitements effectués ici ne concerne
-                            que sur cet immeuble</div>
+                        <div class="page-header-subtitle mt-4 text-warning">
+                            Tout les traitements effectués ici ne concerne que sur cet immeuble
+                        </div>
                     </div>
                     <div class="col-12 col-xl-auto mt-4">
                         <div class="input-group input-group-joined border-0" style="width: 16.5rem">
@@ -25,6 +26,7 @@
             </div>
         </div>
     </header>
+
     <!-- Main page content-->
     <div class="container-xl px-4 mt-n10">
         <div class="row">
@@ -50,11 +52,13 @@
                                 </div>
                                 <div class="card mb-4 mt-4">
                                     <div class="list-group list-group-flush small">
-                                        <a class="list-group-item list-group-item-action" href="{{ route('Gestion_immeuble.edit', [$finds->id]) }}">
+                                        <a class="list-group-item list-group-item-action"
+                                            href="{{ route('Gestion_immeuble.edit', [$finds->id]) }}">
                                             <i class="fas fa-edit fa-fw text-warning me-2"></i>
                                             Modifier immeuble
                                         </a>
-                                        <a class="list-group-item list-group-item-action" href="{{ url('delete_immeubles/' . $finds->id) }}">
+                                        <a class="list-group-item list-group-item-action"
+                                            href="{{ url('delete_immeubles/' . $finds->id) }}">
                                             <i class="fas fa-close fa-fw text-danger me-2"></i>
                                             Supprimer immeuble
                                         </a>
@@ -64,7 +68,8 @@
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-success w-100" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop">
-                                        Ajouter maison
+                                        <i class="fas fa-plus"></i>
+                                        &nbsp; &nbsp; Ajouter maison
                                     </button>
                                 </div>
                             </div>
@@ -85,7 +90,7 @@
                                         <textarea cols="30" rows="2" class="form-control" readonly>{{ $finds->autres }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <p>Loyer immeuble : <strong>{{$total}} FCFA</strong></p>
+                                        <p>Loyer immeuble : <strong>{{ $total }} FCFA</strong></p>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +143,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Ajouter une maison à l'immeuble {{ $finds->id }}
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -175,16 +180,22 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <input class="form-control" name="immeubles_id" value="{{ $finds->id }}" type="text" hidden />
-                                            <input class="form-control" name="categorie" type="text" placeholder="Ras" />
+                                            <input class="form-control" name="immeubles_id" value="{{ $finds->id }}"
+                                                type="text" hidden />
+                                            <input class="form-control" name="categorie" type="text"
+                                                placeholder="Ras" />
                                         </td>
                                         <td class="text-center">
-                                            <button class="btn btn-success" type="button" name="add" id="add">Add</button>
+                                            <button class="btn btn-success" type="button" name="add"
+                                                id="add">Add</button>
                                         </td>
                                     </tr>
                                 </table>
                                 <div class="m-3">
-                                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-save"></i>
+                                        &nbsp; &nbsp; Enregistrer
+                                    </button>
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
                                 </div>
                             </form>

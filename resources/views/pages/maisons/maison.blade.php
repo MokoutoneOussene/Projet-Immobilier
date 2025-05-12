@@ -13,8 +13,9 @@
                         </h1>
                         <div class="page-header-subtitle mt-3">
                             <a class="btn btn-success" href="#!" class="btn btn-success" data-bs-toggle="modal"
-                            data-bs-target="#formMaisonBackdrop">
-                                Ajouter une maison
+                                data-bs-target="#formMaisonBackdrop">
+                                <i class="fas fa-plus"></i>
+                                &nbsp; &nbsp; Ajouter une maison
                             </a>
                         </div>
                     </div>
@@ -55,7 +56,8 @@
                                 @foreach ($collection as $item)
                                     <tr>
                                         <td>{{ $item->code }}</td>
-                                        <td>{{ $item->Immeuble->Bailleur->nom }} {{ $item->Immeuble->Bailleur->prenom }}</td>
+                                        <td>{{ $item->Immeuble->Bailleur->nom }} {{ $item->Immeuble->Bailleur->prenom }}
+                                        </td>
                                         <td>{{ $item->type_maison }}</td>
                                         <td>{{ $item->adresse }}</td>
                                         <td>{{ $item->loyer }} FCFA</td>
@@ -75,73 +77,83 @@
     </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="formMaisonBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog modal-xl">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Ajouter une maison à l'immeuble
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <form action="{{ route('Gestion_maisons.store') }}" method="POST">
-                        @csrf
-                        <table class="table table-responsive table-bordered">
-                            <tr>
-                                <th>Immeuble</th>
-                                <th>Adresse</th>
-                                <th>Type maison</th>
-                                <th>Loyer</th>
-                                <th>Situation</th>
-                                <th>Categorie</th>
-                                <th>Actions</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <select name="immeubles_id" class="form-control">
-                                        <option>Selectionner ici...</option>
-                                        @foreach ($immeubles as $item)
-                                            <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->adresse }}</option>
-                                        @endforeach
-                                    </select>
-                                </td>
-                                <td>
-                                    <input class="form-control" name="adresse" type="text" />
-                                </td>
-                                <td>
-                                    <input class="form-control" name="type_maison" type="text" placeholder="Ex: Chambre salon" required />
-                                </td>
-                                <td>
-                                    <input class="form-control" name="loyer" type="number" placeholder="Ex: 25000 F" required />
-                                </td>
-                                <td>
-                                    <select name="situation" class="form-control">
-                                        <option>Selectionner ici...</option>
-                                        <option value="Libre">Libre</option>
-                                        <option value="Occupée">Occupée</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input class="form-control" name="categorie" type="text" placeholder="Ras"/>
-                                </td>
-                                <td class="text-center">
-                                    <button class="btn btn-success" type="button" name="add" id="add">Add</button>
-                                </td>
-                            </tr>
-                        </table>
-                        <div class="m-3">
-                            <button type="submit" class="btn btn-success">Enregistrer</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+    <!-- Modal -->
+    <div class="modal fade" id="formMaisonBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Ajouter une maison à l'immeuble
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <form action="{{ route('Gestion_maisons.store') }}" method="POST">
+                                @csrf
+                                <table class="table table-responsive table-bordered">
+                                    <tr>
+                                        <th>Immeuble</th>
+                                        <th>Adresse</th>
+                                        <th>Type maison</th>
+                                        <th>Loyer</th>
+                                        <th>Situation</th>
+                                        <th>Categorie</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select name="immeubles_id" class="form-control">
+                                                <option>Selectionner ici...</option>
+                                                @foreach ($immeubles as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->id }} -
+                                                        {{ $item->adresse }}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" name="adresse" type="text" />
+                                        </td>
+                                        <td>
+                                            <input class="form-control" name="type_maison" type="text"
+                                                placeholder="Ex: Chambre salon" required />
+                                        </td>
+                                        <td>
+                                            <input class="form-control" name="loyer" type="number"
+                                                placeholder="Ex: 25000 F" required />
+                                        </td>
+                                        <td>
+                                            <select name="situation" class="form-control">
+                                                <option>Selectionner ici...</option>
+                                                <option value="Libre">Libre</option>
+                                                <option value="Occupée">Occupée</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" name="categorie" type="text" placeholder="Ras" />
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn-success" type="button" name="add"
+                                                id="add">Add</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="m-3">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-save"></i>
+                                        &nbsp; &nbsp; Enregistrer
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                        <i class="fas fa-close"></i>
+                                        &nbsp; &nbsp; Fermer
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 @endsection

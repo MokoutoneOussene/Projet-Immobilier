@@ -1,4 +1,4 @@
-<header class="page-header page-header-dark pb-10" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);">
+<header class="page-header page-header-dark pb-10" style="background: rgb(97, 159, 138);">
     <div class="container-xl px-4">
         <div class="page-header-content pt-4">
             <div class="row align-items-center justify-content-between">
@@ -21,3 +21,4 @@
         </div>
     </div>
 </header>
+

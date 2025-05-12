@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <header class="page-header page-header-dark pb-10"
-        style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);">
+    <header class="page-header page-header-dark pb-10" style="background: rgb(97, 159, 138);">
         <div class="container-xl px-4">
             <div class="page-header-content pt-4">
                 <div class="row align-items-center justify-content-between">
@@ -11,8 +10,9 @@
                             GESTION DES ENCAISSEMENTS
                         </h1>
                         <div class="page-header-subtitle mt-3">
-                            <a class="btn btn-success" href="{{ route('Gestion_encaissements.create') }}" class="btn btn-success">
-                                Ajouter un nouveau encaissement
+                            <a class="btn btn-primary" href="{{ route('Gestion_encaissements.create') }}">
+                                <i class="fas fa-plus"></i>
+                                &nbsp; &nbsp; Ajouter un nouveau encaissement
                             </a>
                         </div>
                     </div>
@@ -36,7 +36,8 @@
                 <!-- Tabbed dashboard card example-->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div style="background: linear-gradient(90deg, rgb(160, 240, 195) 0%, rgb(237, 237, 163) 100%); border-radius: 5px;">
+                        <div
+                            style="background: linear-gradient(90deg, rgb(160, 240, 195) 0%, rgb(237, 237, 163) 100%); border-radius: 5px;">
                             <form action="{{ route('date_filter') }}" method="GET">
                                 <div class="d-flex justify-content-end mb-3">
                                     <div class="col-3 m-2">
@@ -72,12 +73,13 @@
                                     <tr>
                                         <td>{{ $item->code }}</td>
                                         <td>{{ $item->created_at->format('d-m-Y') }}</td>
-                                        <td>{{ $item->Location->Locataire->nom }} {{ $item->Location->Locataire->prenom }}</td>
+                                        <td>{{ $item->Location->Locataire->nom }} {{ $item->Location->Locataire->prenom }}
+                                        </td>
                                         <td>{{ $item->Location->Maison->adresse }}</td>
                                         <td>{{ $item->montant }}</td>
                                         <td>{{ $item->periode }}</td>
                                         <td>{{ $item->annee }}</td>
-                                        <td>{{ $item->User->nom}} {{ $item->User->prenom}}</td>
+                                        <td>{{ $item->User->nom }} {{ $item->User->prenom }}</td>
                                         <td class="text-center">
                                             <a class="text-center"
                                                 href="{{ route('Gestion_encaissements.show', [$item->id]) }}">

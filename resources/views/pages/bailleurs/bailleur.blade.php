@@ -13,7 +13,8 @@
                         <div class="page-header-subtitle mt-3">
                             <a class="btn btn-success" href="#!" class="btn btn-success" data-bs-toggle="modal"
                                 data-bs-target="#formUserBackdrop">
-                                Ajouter un nouveau bailleur
+                                <i class="fas fa-plus"></i>
+                                &nbsp; &nbsp; Ajouter un nouveau bailleur
                             </a>
                         </div>
                     </div>
@@ -75,7 +76,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Ajouter une nouvelle location</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -93,19 +94,22 @@
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
                                                             <label>Nom <span class="text-danger">*</span></label>
-                                                            <input class="form-control" type="text" name="nom" placeholder="Henry" required />
+                                                            <input class="form-control" type="text" name="nom"
+                                                                placeholder="Henry" required />
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
                                                             <label>Prénom <span class="text-danger">*</span></label>
-                                                            <input class="form-control" type="text" name="prenom" placeholder="Mitchel" required />
+                                                            <input class="form-control" type="text" name="prenom"
+                                                                placeholder="Mitchel" required />
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
                                                             <label>Date de naissance</label>
-                                                            <input class="form-control" type="date" name="date_naissance"/>
+                                                            <input class="form-control" type="date"
+                                                                name="date_naissance" />
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-12">
@@ -122,8 +126,10 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
-                                                            <label>N° CNIB ou Passport<span class="text-danger">*</span></label>
-                                                            <input class="form-control" type="text" name="cnib" placeholder="B13649564" />
+                                                            <label>N° CNIB ou Passport<span
+                                                                    class="text-danger">*</span></label>
+                                                            <input class="form-control" type="text" name="cnib"
+                                                                placeholder="B13649564" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -131,13 +137,15 @@
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
                                                             <label>Téléphone<span class="text-danger">*</span></label>
-                                                            <input class="form-control" type="text" name="telephone" placeholder="67186063" />
+                                                            <input class="form-control" type="text" name="telephone"
+                                                                placeholder="67186063" />
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-12">
                                                         <div class="mb-3">
                                                             <label>Quartier</label>
-                                                            <input class="form-control" type="text" name="quartier" placeholder="ex: Wemtenga" />
+                                                            <input class="form-control" type="text" name="quartier"
+                                                                placeholder="ex: Wemtenga" />
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-12">
@@ -149,29 +157,40 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label class="container">Non Resident
-                                                                <input type="checkbox" name="resident" value="non resident">
+                                                                <input type="checkbox" name="resident"
+                                                                    value="non resident">
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row p-2 m-1" style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
+                                            <div class="row p-2 m-1"
+                                                style="border: 2px solid rgb(242, 199, 174); border-radius: 5px;">
                                                 <div class="col-lg-12 col-md-12">
-                                                    <h6 class="m-2 text-center text-danger">Personne à prévenir en cas de besoin</h6>
+                                                    <h6 class="m-2 text-center text-danger">Personne à prévenir en cas de
+                                                        besoin</h6>
                                                     <div class="mb-3">
                                                         <label>Nom complet</label>
-                                                        <input class="form-control" type="text" name="prevent_name" placeholder="Henry mitchel" />
+                                                        <input class="form-control" type="text" name="prevent_name"
+                                                            placeholder="Henry mitchel" />
                                                     </div>
                                                     <div class="mb-3">
                                                         <label>N° Téléphone</label>
-                                                        <input class="form-control" type="text" name="prevent_phone"  placeholder="67186063" />
+                                                        <input class="form-control" type="text" name="prevent_phone"
+                                                            placeholder="67186063" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mt-3">
-                                                <button type="submit" class="btn btn-success">Enregistrer</button>
-                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-success">
+                                                    <i class="fas fa-save"></i>
+                                                    &nbsp; &nbsp; Enregistrer
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                                    <i class="fas fa-close"></i>
+                                                    &nbsp; &nbsp; Fermer
+                                                </button>
                                             </div>
                                         </form>
                                     </div>

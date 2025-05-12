@@ -8,7 +8,7 @@
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
-                            MODIFIER DEPENSES COURANTES N° {{$finds->id}} 
+                            MODIFIER DEPENSES COURANTES N° {{$finds->id}}
                         </h1>
                         <div class="page-header-subtitle mt-3">
                             Modifier la depense courantes au compte de l'agence
@@ -66,7 +66,10 @@
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-save"></i>
+                                        &nbsp; &nbsp; Enregistrer
+                                    </button>
                                 </div>
                             </form>
                         </div>

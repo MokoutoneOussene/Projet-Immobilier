@@ -12,7 +12,8 @@
                         </h1>
                         <div class="page-header-subtitle mt-3">
                             <a class="btn btn-success" href="{{ route('Gestion_immeuble.index') }}" class="btn btn-success">
-                                Liste des immeubles
+                                <i data-feather="grid"></i>
+                                &nbsp; &nbsp; Liste des immeubles
                             </a>
                         </div>
                     </div>
@@ -48,7 +49,8 @@
                                                 <div class="col-lg-4 col-md-12">
                                                     <div class="mb-3">
                                                         <label>Nom du bailleur<span class="text-danger">*</span></label>
-                                                        <select name="bailleurs_id" class="form-control js-example-basic-single">
+                                                        <select name="bailleurs_id"
+                                                            class="form-control js-example-basic-single">
 
                                                         </select>
                                                     </div>
@@ -56,13 +58,15 @@
                                                 <div class="col-lg-4 col-md-12">
                                                     <div class="mb-3">
                                                         <label>Adresse <span class="text-danger">*</span></label>
-                                                        <input class="form-control" name="adresse" type="text" placeholder="Ex: Zagtouli" required />
+                                                        <input class="form-control" name="adresse" type="text"
+                                                            placeholder="Ex: Zagtouli" required />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4 col-md-12">
                                                     <div class="mb-3">
                                                         <label>Nombre de locaux<span class="text-danger">*</span></label>
-                                                        <input class="form-control" name="nbr_locaux" type="number" required />
+                                                        <input class="form-control" name="nbr_locaux" type="number"
+                                                            required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,7 +86,10 @@
                                             </div>
                                         </div>
                                         <div class="mt-3">
-                                            <button type="submit" class="btn btn-success">Enregistrer</button>
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="fas fa-save"></i>
+                                                &nbsp; &nbsp; Enregistrer
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

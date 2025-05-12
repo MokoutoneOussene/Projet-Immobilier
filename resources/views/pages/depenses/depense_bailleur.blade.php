@@ -67,8 +67,10 @@
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-success">Enregistrer</button>
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-save"></i>
+                                        &nbsp; &nbsp; Enregistrer
+                                    </button>
                                 </div>
                             </form>
                         </div>
